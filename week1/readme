@@ -1,0 +1,11 @@
+1.	This directory contains all the program and the assessments done on week 1
+
+2.	Each sub directories named as day1 day2 and so on 
+
+3.	Each subdirectory has 2 other libraries
+
+•	Pseudo code folder
+     Contains pseudo code of all the programs  
+
+•	Programs
+     Contain the program in .C format
