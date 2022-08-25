@@ -1,0 +1,12 @@
+
+1 start program
+2 define the value of pie using macro and const datatype
+3 declare integar variable to store result sum
+4 start the main function
+5 decalre 3 integar and 1 float variable to store corresponding values
+6 input 2 number and radius from the users
+7 find area using the macro 
+8 find sum of 2 integar 
+9 print sum and area to the screen
+10 find area using the pie variable defined as constant 
+11 print the corresponding output

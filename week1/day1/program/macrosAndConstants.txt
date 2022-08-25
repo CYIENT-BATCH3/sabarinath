@@ -1,0 +1,29 @@
+/*
+*program to learn about macros and const
+*input radius of circle and find its area
+*/
+
+#include<stdio.h>						//include standard header file for input output operation
+#define PI 3.14							//dfine PI vlaue into 3.14 using macro
+int sum;							//declare a integar variable to store result
+int main(void)							//main funstion
+{
+
+int num1 ;							//decalre 2 integar variables
+int num2 ;						
+float area;							//declare float variable to store area
+int radius;							
+printf("enter the radius of circle and 2 numbers \n");		//ask for the radius and 2 numbers
+scanf("%d",&radius,&num1,&num2);
+printf("sum = %d",num1+num2);					//find sum and print in the screen				
+printf("\n-----area uing macro PI -----\n");
+area = PI * radius*radius;					//find area of circle using the macro
+printf("area of circle of radius %d = %0.4f\n",radius,area);    //printing area
+/*
+* another method of declaring constant using const keyword
+*/
+printf("\n-----area using const pie-----\n");
+const int pie = 3.1456;						//declaring constant integar pie and assighning a value of 3.1456
+area = pie * radius*radius;					//finding the area using constant int pie
+printf("area of circle of radius %d = %0.4f",radius,area);	//printing the ouput to screen
+}

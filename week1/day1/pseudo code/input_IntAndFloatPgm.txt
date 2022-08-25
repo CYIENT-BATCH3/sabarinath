@@ -1,0 +1,8 @@
+
+1 start the program
+2 intialize 2 variable 1 in int and 1 in float
+3 input 1 integar and 1 float values from user
+4 print the corresponding values to the screen
+
+
+
