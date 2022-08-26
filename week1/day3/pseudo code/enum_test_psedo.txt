@@ -1,0 +1,6 @@
+
+
+1 start the program
+2 declare the variable  and enumerated data type with weekday and its corresponding values
+3 input data from the users
+4 check the value inputed by user and value in enumerated data type and print the corresponding values

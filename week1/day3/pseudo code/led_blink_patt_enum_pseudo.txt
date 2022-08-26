@@ -1,0 +1,12 @@
+
+
+1 intilize the hardware perheral such as clock 
+2 defien correponding macros such as crystal frequancy as 20MHZ and declare the enumerated datatype for different pattern
+3 start the main program
+4 direct portb as output
+5 clear all the pin PORT B
+6 start the infinte loop
+7 give first apttern to port B
+8 wait for some delay
+9 continue the step for different pattern
+
