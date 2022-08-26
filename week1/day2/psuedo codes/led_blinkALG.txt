@@ -1,0 +1,12 @@
+
+1	configure the system clock as HS
+2	include necessary header files
+3	start the main function
+4	make RB0 as ouput using TRIS registers
+5	clear the  RB0 for the intial condition OFF state
+6 	start the infinte loop
+7	make RB0 as 1
+8	wait for some delay
+9	make RB0 as 0
+10	wait for some delay
+

@@ -1,0 +1,5 @@
+
+1 include the header file for IO and float operation
+2 start the main funcion
+3 print the memory taken by float type
+4 print max and min value for the float type

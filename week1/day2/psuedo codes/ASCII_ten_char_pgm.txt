@@ -1,0 +1,5 @@
+
+1 start the program
+2 declare variable as char
+3 input 10 charcater using loop
+4 print ascii value of each of 10 charcter using %d format specifiers.

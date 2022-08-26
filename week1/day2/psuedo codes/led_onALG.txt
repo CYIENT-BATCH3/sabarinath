@@ -1,0 +1,7 @@
+
+1	configure the clock as HS external high speed clock
+2	include necessary header files
+3	direct any pin(RB0) as ouput using TRIS register 
+4	clear the RB0 for the intial condition using PORT register
+5	start the infinite loop
+6	make RB0 as HIGH using PORT register.
