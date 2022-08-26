@@ -1,0 +1,12 @@
+/* 
+ * take a 6 digit number as input from ythe user and reverse the number make sure that the number doesnt include a '0' in any of 
+ * its digit
+ */
+
+
+1 start the program
+2 initialize the variables 
+3 input the 6 digit variable from the user 
+4 extract the last digit from the number and save it in another variable as the first digit
+5 devide the number by 10 to avoid the last digit from the number 
+6 repeat the step for 6 times then we will get the reverse of the number 

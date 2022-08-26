@@ -1,0 +1,7 @@
+
+1 start program
+2 dfine value of pie
+3 declare all variable 
+4 input the values from the user
+5 find area using equation
+6 display the area

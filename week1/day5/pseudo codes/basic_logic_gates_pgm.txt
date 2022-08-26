@@ -1,0 +1,10 @@
+/*
+ * implement basic logic gates using C (AND OR NOT) consider input as 0,0
+ */
+ 
+
+
+1 start the program
+2 declare the variables
+3 print AND logic using && and conditional operator
+4 similarly done for OR and NOT using corresponding operator

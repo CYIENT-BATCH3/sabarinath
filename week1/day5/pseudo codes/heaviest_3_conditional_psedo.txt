@@ -1,0 +1,9 @@
+/*
+ * consider weight of 3 people as i/p and find the heaviest amoung them
+ */
+ 
+
+1 start the program
+2 intilize the variables
+3 input the variables
+4 find the largest of three using conditional operators

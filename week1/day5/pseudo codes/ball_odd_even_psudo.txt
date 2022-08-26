@@ -1,0 +1,10 @@
+/*
+ * 5 balls are numbered with random 1 digit number each .assighn these numbers using user input print 
+ * weather each ball is assogned pdd or even
+ */
+ 
+
+1 start program
+2 declare variables
+3 accepet variable from user
+4 check each variable is divisible by 2 or not inorder to find the odd and even number

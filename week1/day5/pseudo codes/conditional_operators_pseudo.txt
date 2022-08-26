@@ -1,0 +1,8 @@
+/*
+ * use 4 relational operator with conditional operator
+ */
+
+1 start the program
+2 declare the variable 
+3 accept the variable from the user
+4 check for different relational operator using differnt conditional operator

@@ -1,0 +1,10 @@
+/*
+ *WAP to implement 4 types of data using formatted IO and 3 type of unformatted input
+ */
+
+
+
+1 start the program
+2 initilize the variable 
+3 take input from the user using formatted input 
+4 take input from user using the unformated input like gets getch  etc..
