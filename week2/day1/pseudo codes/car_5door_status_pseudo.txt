@@ -1,0 +1,7 @@
+
+
+1 start program
+2 intiliaze the variable and assighn the corresponding values to them
+3 create variable for storing the extaracted bits for each door
+4 extract corresponding bit from respective registers
+5 check the status of the bit and print corresponding output
