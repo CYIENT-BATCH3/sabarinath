@@ -1,0 +1,12 @@
+
+
+1 defiening corresponding crystal frequancy
+2 make RB0 as output and clear RB0 for LED
+3 make RB1 as ouput and clear the BIT for LED
+4 make RC6 as ouput (act as a transmitter)
+5 make RC7 as in put as recievr
+6 set SPBRG register to 31 to make the baudrate at 9600
+7 set TXSTA register to 0x20 to make corresponding bits active
+8 infinite loop
+9 check for TXIF to become 1 for succesfull transmission
+10 copy the value to be transmitted to xREG register buffer
