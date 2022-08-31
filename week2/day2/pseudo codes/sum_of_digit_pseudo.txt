@@ -1,0 +1,6 @@
+/* WAP to find the sum of 4 digit number  */
+
+1 start the program
+2 initize and take input of necessary variabeles
+3 extract the last digit of number using mode operation with 10 and add it with the last  remainder until the loop is false 
+4 avoid the last digit from the number

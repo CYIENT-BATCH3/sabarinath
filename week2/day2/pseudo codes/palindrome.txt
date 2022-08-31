@@ -1,0 +1,13 @@
+/*
+ *WAP to print weather a number is palindrome or not 
+ */
+
+
+
+1 start 
+2 take user input
+3 save the input to some other variabe
+5 find the revers of the number 
+6 check weather the nimber and reverse of the number is same or not 
+7 then print it as palindrome number else not
+

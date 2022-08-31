@@ -1,0 +1,7 @@
+/* WAP to print factorial of a number using while loop*/
+
+
+1 start
+2 take user input
+3 check the input is 0 then set the factorial as 1
+4 else find the factorial using equation 

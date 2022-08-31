@@ -1,0 +1,8 @@
+/* armstrong or not */
+
+1 start 
+2 take input
+3 copy input other variable
+4 find the sum of cube of each digit
+5 check the sum with input number 
+6 if it is equal then it is armstrong

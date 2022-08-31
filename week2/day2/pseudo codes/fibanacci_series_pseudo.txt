@@ -1,0 +1,11 @@
+/* print the fibanacci series upto n */
+
+
+
+1 start
+2 take user input 
+3 print first 2 values
+4 find the nect value 
+5 loop from 2 to n
+6 print next value
+7 assighn prevoius value to one variable and current value to another variable and find athe next vale by adding them 

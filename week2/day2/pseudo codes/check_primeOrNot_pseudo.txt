@@ -1,0 +1,8 @@
+/* WAP to check weather the number is prime or not*/
+
+
+1 start
+2 take user input
+3 loop until n/2
+4 check each loop element is divisible then set flag as 1
+5 check the flag if it is 0 then prime else not

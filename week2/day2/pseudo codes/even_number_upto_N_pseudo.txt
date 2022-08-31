@@ -1,0 +1,8 @@
+/* WAP to print even numbers from 1 to n using while loop */
+
+
+
+1 start
+2 take user input
+3 open loop with condition upto n
+4 check the number is even then print it

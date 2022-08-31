@@ -1,0 +1,12 @@
+/* WAP to print prime numbers between 1 to n*/
+
+
+1 start
+2 take usr input
+3 loop for taking each varianle upto n
+4 loop for tacking each variable upto the first loop element
+5 check for the divisor if it is divisiblr by any element the set flag as 1 
+6 check the flag and print the corresponding output
+
+
+
