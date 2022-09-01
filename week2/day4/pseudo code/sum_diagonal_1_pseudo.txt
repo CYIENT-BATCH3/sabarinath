@@ -1,0 +1,11 @@
+
+/*
+ * WAP to find sum of diagaonal elements of 2D array 
+ */
+ 
+
+
+start
+intilise the variable and input the array
+find the sum of diagonal elements(11,22,33,44...)
+print the sum

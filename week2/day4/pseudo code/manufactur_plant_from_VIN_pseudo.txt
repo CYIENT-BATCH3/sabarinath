@@ -1,0 +1,11 @@
+
+/*
+ * input the vin number and find the manufacturing plant from the VIN number
+ */
+
+
+
+1 start
+2 intilise the variables
+3 input the string 
+4 check the 10th bit with the corresponding values

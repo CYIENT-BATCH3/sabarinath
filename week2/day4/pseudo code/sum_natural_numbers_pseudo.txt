@@ -1,0 +1,8 @@
+/* WAP to print sum of natural numbers upto n */
+
+
+
+1 start 
+2 initialise all the variable
+3 find the sum of numbers upto n
+4 print the sum

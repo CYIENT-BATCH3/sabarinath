@@ -1,0 +1,11 @@
+/*
+ * WAP to find sum of opposite diagaonal elements of 2D array 
+ */
+ 
+
+
+
+start
+initialise the variable and input the array elements
+find the sum ofdiagonal elements that is (03,12,21,30)
+print the sum

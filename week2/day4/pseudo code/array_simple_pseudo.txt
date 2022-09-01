@@ -1,0 +1,8 @@
+/* WAP to read the element and print the elements aof an array using 1D array */
+
+
+
+1 start 
+2 declare variuable and take limit from user
+3 scan the input from user until limit is used
+4 print all the elements
