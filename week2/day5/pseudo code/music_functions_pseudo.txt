@@ -1,0 +1,9 @@
+/* WAP to create the music function  */
+
+
+
+
+1 start
+2 take user input weather it is 1 2 3 4 5
+3 compare it with the logic of the requuirement 
+4 print the corresponding value according to the user input 

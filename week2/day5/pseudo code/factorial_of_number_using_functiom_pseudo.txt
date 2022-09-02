@@ -1,0 +1,9 @@
+/* WAP to print the factorial of number using function   */
+
+
+
+
+start
+initialise the variable and take user input 
+find thefactorial by multiplying all its prior values upto the number
+print the value

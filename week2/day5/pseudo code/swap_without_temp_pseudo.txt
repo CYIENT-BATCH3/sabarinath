@@ -1,0 +1,7 @@
+/* WAP to swap 2 numbers without using third variable*/
+
+
+1 start 
+2 intilise the varible and take the user input 
+3 swap the variable without using the third variable 
+4 print the values 

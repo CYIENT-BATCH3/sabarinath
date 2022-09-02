@@ -1,0 +1,8 @@
+/* AP to count no of digit in a given number using recursive function */
+
+
+
+start 
+initilise the variables and take user input
+count the number of digit from the user input 
+print the count

@@ -1,0 +1,7 @@
+/*factorial using recursive function  */
+
+
+start
+initilise the variable and take user input
+find the factorial by multiplying all its previous values using recursion
+print the value
