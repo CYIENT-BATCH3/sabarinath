@@ -1,0 +1,8 @@
+
+
+
+start 
+take user input to select the featre of the phone
+compare the value given by the user and process the function
+again take user input to take the options available in ht particular featre 
+print the option selected by the user
