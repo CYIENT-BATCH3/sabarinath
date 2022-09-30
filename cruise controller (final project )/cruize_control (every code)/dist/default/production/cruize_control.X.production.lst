@@ -1,0 +1,3085 @@
+
+
+Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
+                                                                                               Thu Sep 29 17:27:39 2022
+
+Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
+     1                           	processor	18F458
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    21                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text15,global,reloc=2,class=CODE,delta=1
+    24                           	psect	text16,global,reloc=2,class=CODE,delta=1
+    25                           	psect	text17,global,reloc=2,class=CODE,delta=1
+    26                           	psect	text18,global,reloc=2,class=CODE,delta=1
+    27                           	psect	text19,global,reloc=2,class=CODE,delta=1
+    28                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    29                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    30                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    31                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
+    32                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    33  0000                     
+    34                           ; Version 2.40
+    35                           ; Generated 17/11/2021 GMT
+    36                           ; 
+    37                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    38                           ; All rights reserved.
+    39                           ; 
+    40                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    41                           ; 
+    42                           ; Redistribution and use in source and binary forms, with or without modification, are
+    43                           ; permitted provided that the following conditions are met:
+    44                           ; 
+    45                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    46                           ;        conditions and the following disclaimer.
+    47                           ; 
+    48                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    49                           ;        of conditions and the following disclaimer in the documentation and/or other
+    50                           ;        materials provided with the distribution. Publication is not required when
+    51                           ;        this file is used in an embedded application.
+    52                           ; 
+    53                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    54                           ;        software without specific prior written permission.
+    55                           ; 
+    56                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    57                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    58                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    59                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    60                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    61                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    62                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    63                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    64                           ; 
+    65                           ; 
+    66                           ; Code-generator required, PIC18F458 Definitions
+    67                           ; 
+    68                           ; SFR Addresses
+    69  0000                     _RXB0SIDH	set	3937
+    70  0000                     _RXB0SIDL	set	3938
+    71  0000                     _RXB0DLC	set	3941
+    72  0000                     _RXB0D7	set	3949
+    73  0000                     _RXB0D6	set	3948
+    74  0000                     _RXB0D5	set	3947
+    75  0000                     _RXB0D4	set	3946
+    76  0000                     _RXB0D3	set	3945
+    77  0000                     _RXB0D2	set	3944
+    78  0000                     _RXB0D1	set	3943
+    79  0000                     _RXB0D0	set	3942
+    80  0000                     _PIR3bits	set	4004
+    81  0000                     _IPR3bits	set	4005
+    82  0000                     _RXB0CONbits	set	3936
+    83  0000                     _PEIE	set	32662
+    84  0000                     _RXF1SIDH	set	3844
+    85  0000                     _RXF0SIDL	set	3841
+    86  0000                     _RXF0SIDH	set	3840
+    87  0000                     _RXM0SIDH	set	3864
+    88  0000                     _CANSTAT	set	3950
+    89  0000                     _CANCON	set	3951
+    90  0000                     _BRGCON1	set	3952
+    91  0000                     _PORTBbits	set	3969
+    92  0000                     _TRISBbits	set	3987
+    93  0000                     _PORTCbits	set	3970
+    94  0000                     _PIE3bits	set	4003
+    95  0000                     _INTCON2bits	set	4081
+    96  0000                     _TRISCbits	set	3988
+    97  0000                     _GIE	set	32663
+    98  0000                     _CIOCON	set	3955
+    99  0000                     _BRGCON3	set	3954
+   100  0000                     _BRGCON2	set	3953
+   101  0000                     _TXB0CON	set	3904
+   102  0000                     _TXB0SIDH	set	3905
+   103  0000                     _RXB0CON	set	3936
+   104  0000                     _RXM0SIDL	set	3865
+   105  0000                     _RXF1SIDL	set	3845
+   106  0000                     _TXB0DLC	set	3909
+   107  0000                     _TXB0SIDL	set	3906
+   108  0000                     _TXB0D7	set	3917
+   109  0000                     _TXB0D6	set	3916
+   110  0000                     _TXB0D5	set	3915
+   111  0000                     _TXB0D4	set	3914
+   112  0000                     _TXB0D3	set	3913
+   113  0000                     _TXB0D2	set	3912
+   114  0000                     _TXB0D1	set	3911
+   115  0000                     _TXB0D0	set	3910
+   116                           
+   117                           ; #config settings
+   118                           
+   119                           	psect	cinit
+   120  000752                     __pcinit:
+   121                           	callstack 0
+   122  000752                     start_initialization:
+   123                           	callstack 0
+   124  000752                     __initialization:
+   125                           	callstack 0
+   126                           
+   127                           ; Clear objects allocated to COMRAM (23 bytes)
+   128  000752  EE00  F001         	lfsr	0,__pbssCOMRAM
+   129  000756  0E17               	movlw	23
+   130  000758                     clear_0:
+   131  000758  6AEE               	clrf	postinc0,c
+   132  00075A  06E8               	decf	wreg,f,c
+   133  00075C  E1FD               	bnz	clear_0
+   134  00075E                     end_of_initialization:
+   135                           	callstack 0
+   136  00075E                     __end_of__initialization:
+   137                           	callstack 0
+   138  00075E  901F               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   139  000760  921F               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   140  000762  0100               	movlb	0
+   141  000764  EF64  F002         	goto	_main	;jump to C main() function
+   142                           
+   143                           	psect	bssCOMRAM
+   144  000001                     __pbssCOMRAM:
+   145                           	callstack 0
+   146  000001                     _data_byte:
+   147                           	callstack 0
+   148  000001                     	ds	11
+   149  00000C                     _byte3:
+   150                           	callstack 0
+   151  00000C                     	ds	1
+   152  00000D                     _byte2:
+   153                           	callstack 0
+   154  00000D                     	ds	1
+   155  00000E                     _byte1:
+   156                           	callstack 0
+   157  00000E                     	ds	1
+   158  00000F                     _range_stat:
+   159                           	callstack 0
+   160  00000F                     	ds	1
+   161  000010                     _speed_cmd_status:
+   162                           	callstack 0
+   163  000010                     	ds	1
+   164  000011                     _current_speed:
+   165                           	callstack 0
+   166  000011                     	ds	1
+   167  000012                     _fault_counter:
+   168                           	callstack 0
+   169  000012                     	ds	1
+   170  000013                     _nrcs_data:
+   171                           	callstack 0
+   172  000013                     	ds	1
+   173  000014                     _warning_lamp_status:
+   174                           	callstack 0
+   175  000014                     	ds	1
+   176  000015                     _speed_cmd:
+   177                           	callstack 0
+   178  000015                     	ds	1
+   179  000016                     _cc_switch_stat:
+   180                           	callstack 0
+   181  000016                     	ds	1
+   182  000017                     _cc_nrcs_stat:
+   183                           	callstack 0
+   184  000017                     	ds	1
+   185                           
+   186                           	psect	cstackCOMRAM
+   187  000018                     __pcstackCOMRAM:
+   188                           	callstack 0
+   189  000018                     i2set_mode@mode:
+   190                           	callstack 0
+   191                           
+   192                           ; 1 bytes @ 0x0
+   193  000018                     	ds	1
+   194  000019                     ??_cc_led_change:
+   195  000019                     set_mode@mode:
+   196                           	callstack 0
+   197  000019                     get_mode@mode:
+   198                           	callstack 0
+   199                           
+   200                           ; 1 bytes @ 0x1
+   201  000019                     	ds	1
+   202  00001A                     can_write@byte_cc_status_2:
+   203                           	callstack 0
+   204                           
+   205                           ; 1 bytes @ 0x2
+   206  00001A                     	ds	1
+   207  00001B                     can_write@wl_status_3:
+   208                           	callstack 0
+   209                           
+   210                           ; 1 bytes @ 0x3
+   211  00001B                     	ds	1
+   212  00001C                     ??_can_write:
+   213                           
+   214                           ; 1 bytes @ 0x4
+   215  00001C                     	ds	2
+   216  00001E                     can_write@byte_speed_cmd_1:
+   217                           	callstack 0
+   218                           
+   219                           ; 1 bytes @ 0x6
+   220  00001E                     	ds	1
+   221  00001F                     
+   222                           ; 1 bytes @ 0x7
+   223 ;;
+   224 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   225 ;;
+   226 ;; *************** function _main *****************
+   227 ;; Defined at:
+   228 ;;		line 27 in file "CAN_MAIN.C"
+   229 ;; Parameters:    Size  Location     Type
+   230 ;;		None
+   231 ;; Auto vars:     Size  Location     Type
+   232 ;;		None
+   233 ;; Return value:  Size  Location     Type
+   234 ;;                  1    wreg      void 
+   235 ;; Registers used:
+   236 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   237 ;; Tracked objects:
+   238 ;;		On entry : 0/0
+   239 ;;		On exit  : 0/0
+   240 ;;		Unchanged: 0/0
+   241 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   242 ;;      Params:         0       0       0       0       0       0       0
+   243 ;;      Locals:         0       0       0       0       0       0       0
+   244 ;;      Temps:          0       0       0       0       0       0       0
+   245 ;;      Totals:         0       0       0       0       0       0       0
+   246 ;;Total ram usage:        0 bytes
+   247 ;; Hardware stack levels required when called: 6
+   248 ;; This function calls:
+   249 ;;		_can_init
+   250 ;;		_can_write
+   251 ;;		_cc_led_change
+   252 ;;		_change_err_stat_nLED
+   253 ;;		_init_inp_out
+   254 ;;		_set_baudrate
+   255 ;;		_set_byte_transmission
+   256 ;;		_set_filter
+   257 ;;		_set_mask
+   258 ;;		_sys_init
+   259 ;; This function is called by:
+   260 ;;		Startup code after reset
+   261 ;; This function uses a non-reentrant model
+   262 ;;
+   263                           
+   264                           	psect	text0
+   265  0004C8                     __ptext0:
+   266                           	callstack 0
+   267  0004C8                     _main:
+   268                           	callstack 25
+   269  0004C8  FFFF               	dw	65535	; assembler added errata NOP
+   270                           
+   271                           ;CAN_MAIN.C: 28:     init_inp_out();
+   272  0004CA  ECBF  F003         	call	_init_inp_out	;wreg free
+   273                           
+   274                           ;CAN_MAIN.C: 30:     sys_init();
+   275  0004CE  ECD2  F003         	call	_sys_init	;wreg free
+   276                           
+   277                           ;CAN_MAIN.C: 31:     can_init();
+   278  0004D2  ECE5  F003         	call	_can_init	;wreg free
+   279  0004D6                     
+   280                           ;CAN_MAIN.C: 32:     set_baudrate();
+   281  0004D6  EC63  F003         	call	_set_baudrate	;wreg free
+   282  0004DA                     
+   283                           ;CAN_MAIN.C: 33:     set_mask();
+   284  0004DA  ECC9  F003         	call	_set_mask	;wreg free
+   285  0004DE                     
+   286                           ;CAN_MAIN.C: 34:     set_filter();
+   287  0004DE  EC9A  F003         	call	_set_filter	;wreg free
+   288  0004E2                     l1307:
+   289  0004E2  FFFF               	dw	65535	; assembler added errata NOP
+   290                           
+   291                           ;CAN_MAIN.C: 37:     {;CAN_MAIN.C: 38:         cc_led_change();
+   292  0004E4  ECFF  F001         	call	_cc_led_change	;wreg free
+   293  0004E8                     
+   294                           ;CAN_MAIN.C: 39:         change_err_stat_nLED();
+   295  0004E8  EC18  F003         	call	_change_err_stat_nLED	;wreg free
+   296  0004EC                     
+   297                           ;CAN_MAIN.C: 41:         if(cc_switch_stat)
+   298  0004EC  5016               	movf	_cc_switch_stat^0,w,c
+   299  0004EE  B4D8               	btfsc	status,2,c
+   300  0004F0  EF7C  F002         	goto	u611
+   301  0004F4  EF7F  F002         	goto	u610
+   302  0004F8                     u611:
+   303  0004F8  FFFF               	dw	65535	; assembler added errata NOP
+   304  0004FA  EF84  F002         	goto	l1315
+   305  0004FE                     u610:
+   306  0004FE  FFFF               	dw	65535	; assembler added errata NOP
+   307  000500                     
+   308                           ;CAN_MAIN.C: 42:         {;CAN_MAIN.C: 46:             set_byte_transmission();
+   309  000500  ECB4  F003         	call	_set_byte_transmission	;wreg free
+   310                           
+   311                           ;CAN_MAIN.C: 47:         }
+   312  000504  EF97  F002         	goto	l1317
+   313  000508                     l1315:
+   314  000508  FFFF               	dw	65535	; assembler added errata NOP
+   315                           
+   316                           ;CAN_MAIN.C: 49:         {;CAN_MAIN.C: 50:             cc_nrcs_stat =0;
+   317  00050A  0E00               	movlw	0
+   318  00050C  6E17               	movwf	_cc_nrcs_stat^0,c
+   319                           
+   320                           ;CAN_MAIN.C: 51:             speed_cmd = 0;
+   321  00050E  0E00               	movlw	0
+   322  000510  6E15               	movwf	_speed_cmd^0,c
+   323                           
+   324                           ;CAN_MAIN.C: 52:             warning_lamp_status=0;
+   325  000512  0E00               	movlw	0
+   326  000514  6E14               	movwf	_warning_lamp_status^0,c
+   327                           
+   328                           ;CAN_MAIN.C: 53:             nrcs_data = 0;
+   329  000516  0E00               	movlw	0
+   330  000518  6E13               	movwf	_nrcs_data^0,c
+   331                           
+   332                           ;CAN_MAIN.C: 54:             current_speed = 0;
+   333  00051A  0E00               	movlw	0
+   334  00051C  6E11               	movwf	_current_speed^0,c
+   335                           
+   336                           ;CAN_MAIN.C: 55:             fault_counter=0;
+   337  00051E  0E00               	movlw	0
+   338  000520  6E12               	movwf	_fault_counter^0,c
+   339                           
+   340                           ;CAN_MAIN.C: 56:             byte1 = 0;
+   341  000522  0E00               	movlw	0
+   342  000524  6E0E               	movwf	_byte1^0,c
+   343                           
+   344                           ;CAN_MAIN.C: 57:             byte2 = 0;
+   345  000526  0E00               	movlw	0
+   346  000528  6E0D               	movwf	_byte2^0,c
+   347                           
+   348                           ;CAN_MAIN.C: 58:             byte3 = 0;
+   349  00052A  0E00               	movlw	0
+   350  00052C  6E0C               	movwf	_byte3^0,c
+   351  00052E                     l1317:
+   352  00052E  FFFF               	dw	65535	; assembler added errata NOP
+   353                           
+   354                           ;CAN_MAIN.C: 60:          can_write(byte1,byte2,byte3);
+   355  000530  C00D  F01A         	movff	_byte2,can_write@byte_cc_status_2
+   356  000534  C00C  F01B         	movff	_byte3,can_write@wl_status_3
+   357  000538  500E               	movf	_byte1^0,w,c
+   358  00053A  ECA3  F002         	call	_can_write
+   359  00053E  EF71  F002         	goto	l1307
+   360  000542  EF16  F000         	goto	start
+   361  000546                     __end_of_main:
+   362                           	callstack 0
+   363                           
+   364 ;; *************** function _sys_init *****************
+   365 ;; Defined at:
+   366 ;;		line 9 in file "CAN_FN_DEFNITION.c"
+   367 ;; Parameters:    Size  Location     Type
+   368 ;;		None
+   369 ;; Auto vars:     Size  Location     Type
+   370 ;;		None
+   371 ;; Return value:  Size  Location     Type
+   372 ;;                  1    wreg      void 
+   373 ;; Registers used:
+   374 ;;		None
+   375 ;; Tracked objects:
+   376 ;;		On entry : 0/0
+   377 ;;		On exit  : 0/0
+   378 ;;		Unchanged: 0/0
+   379 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   380 ;;      Params:         0       0       0       0       0       0       0
+   381 ;;      Locals:         0       0       0       0       0       0       0
+   382 ;;      Temps:          0       0       0       0       0       0       0
+   383 ;;      Totals:         0       0       0       0       0       0       0
+   384 ;;Total ram usage:        0 bytes
+   385 ;; Hardware stack levels used: 1
+   386 ;; Hardware stack levels required when called: 4
+   387 ;; This function calls:
+   388 ;;		Nothing
+   389 ;; This function is called by:
+   390 ;;		_main
+   391 ;; This function uses a non-reentrant model
+   392 ;;
+   393                           
+   394                           	psect	text1
+   395  0007A4                     __ptext1:
+   396                           	callstack 0
+   397  0007A4                     _sys_init:
+   398                           	callstack 0
+   399  0007A4  FFFF               	dw	65535	; assembler added errata NOP
+   400  0007A6                     
+   401                           ;CAN_FN_DEFNITION.c: 11:     GIE = 1;
+   402  0007A6  8EF2               	bsf	4082,7,c	;volatile
+   403                           
+   404                           ;CAN_FN_DEFNITION.c: 12:     PEIE = 1;
+   405  0007A8  8CF2               	bsf	4082,6,c	;volatile
+   406                           
+   407                           ;CAN_FN_DEFNITION.c: 13:     PIE3bits.RXB0IE =1;
+   408  0007AA  80A3               	bsf	163,0,c	;volatile
+   409                           
+   410                           ;CAN_FN_DEFNITION.c: 14:     IPR3bits.RXB0IP=1;
+   411  0007AC  80A5               	bsf	165,0,c	;volatile
+   412  0007AE  0012               	return		;funcret
+   413  0007B0  FFFF               	dw	65535	; errata NOP
+   414  0007B2                     __end_of_sys_init:
+   415                           	callstack 0
+   416                           
+   417 ;; *************** function _set_mask *****************
+   418 ;; Defined at:
+   419 ;;		line 50 in file "CAN_FN_DEFNITION.c"
+   420 ;; Parameters:    Size  Location     Type
+   421 ;;		None
+   422 ;; Auto vars:     Size  Location     Type
+   423 ;;		None
+   424 ;; Return value:  Size  Location     Type
+   425 ;;                  1    wreg      void 
+   426 ;; Registers used:
+   427 ;;		None
+   428 ;; Tracked objects:
+   429 ;;		On entry : 0/0
+   430 ;;		On exit  : 0/0
+   431 ;;		Unchanged: 0/0
+   432 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   433 ;;      Params:         0       0       0       0       0       0       0
+   434 ;;      Locals:         0       0       0       0       0       0       0
+   435 ;;      Temps:          0       0       0       0       0       0       0
+   436 ;;      Totals:         0       0       0       0       0       0       0
+   437 ;;Total ram usage:        0 bytes
+   438 ;; Hardware stack levels used: 1
+   439 ;; Hardware stack levels required when called: 4
+   440 ;; This function calls:
+   441 ;;		Nothing
+   442 ;; This function is called by:
+   443 ;;		_main
+   444 ;; This function uses a non-reentrant model
+   445 ;;
+   446                           
+   447                           	psect	text2
+   448  000792                     __ptext2:
+   449                           	callstack 0
+   450  000792                     _set_mask:
+   451                           	callstack 0
+   452  000792  FFFF               	dw	65535	; assembler added errata NOP
+   453  000794                     
+   454                           ;CAN_FN_DEFNITION.c: 52:     RXM0SIDH = 0x00;
+   455  000794  0E00               	movlw	0
+   456  000796  CFE8 FF18          	movff	wreg,3864
+   457                           
+   458                           ;CAN_FN_DEFNITION.c: 53:     RXM0SIDL = 0x00;
+   459  00079A  0E00               	movlw	0
+   460  00079C  CFE8 FF19          	movff	wreg,3865
+   461  0007A0  0012               	return		;funcret
+   462  0007A2  FFFF               	dw	65535	; errata NOP
+   463  0007A4                     __end_of_set_mask:
+   464                           	callstack 0
+   465                           
+   466 ;; *************** function _set_filter *****************
+   467 ;; Defined at:
+   468 ;;		line 56 in file "CAN_FN_DEFNITION.c"
+   469 ;; Parameters:    Size  Location     Type
+   470 ;;		None
+   471 ;; Auto vars:     Size  Location     Type
+   472 ;;		None
+   473 ;; Return value:  Size  Location     Type
+   474 ;;                  1    wreg      void 
+   475 ;; Registers used:
+   476 ;;		None
+   477 ;; Tracked objects:
+   478 ;;		On entry : 0/0
+   479 ;;		On exit  : 0/0
+   480 ;;		Unchanged: 0/0
+   481 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   482 ;;      Params:         0       0       0       0       0       0       0
+   483 ;;      Locals:         0       0       0       0       0       0       0
+   484 ;;      Temps:          0       0       0       0       0       0       0
+   485 ;;      Totals:         0       0       0       0       0       0       0
+   486 ;;Total ram usage:        0 bytes
+   487 ;; Hardware stack levels used: 1
+   488 ;; Hardware stack levels required when called: 4
+   489 ;; This function calls:
+   490 ;;		Nothing
+   491 ;; This function is called by:
+   492 ;;		_main
+   493 ;; This function uses a non-reentrant model
+   494 ;;
+   495                           
+   496                           	psect	text3
+   497  000734                     __ptext3:
+   498                           	callstack 0
+   499  000734                     _set_filter:
+   500                           	callstack 0
+   501  000734  FFFF               	dw	65535	; assembler added errata NOP
+   502  000736                     
+   503                           ;CAN_FN_DEFNITION.c: 58:     RXF0SIDH = 0x00;
+   504  000736  0E00               	movlw	0
+   505  000738  CFE8 FF00          	movff	wreg,3840
+   506                           
+   507                           ;CAN_FN_DEFNITION.c: 59:     RXF0SIDL = 0x00;
+   508  00073C  0E00               	movlw	0
+   509  00073E  CFE8 FF01          	movff	wreg,3841
+   510                           
+   511                           ;CAN_FN_DEFNITION.c: 60:     RXF1SIDH = 0x00;
+   512  000742  0E00               	movlw	0
+   513  000744  CFE8 FF04          	movff	wreg,3844
+   514                           
+   515                           ;CAN_FN_DEFNITION.c: 61:     RXF1SIDL = 0x00;
+   516  000748  0E00               	movlw	0
+   517  00074A  CFE8 FF05          	movff	wreg,3845
+   518  00074E  0012               	return		;funcret
+   519  000750  FFFF               	dw	65535	; errata NOP
+   520  000752                     __end_of_set_filter:
+   521                           	callstack 0
+   522                           
+   523 ;; *************** function _set_byte_transmission *****************
+   524 ;; Defined at:
+   525 ;;		line 210 in file "CAN_MAIN.C"
+   526 ;; Parameters:    Size  Location     Type
+   527 ;;		None
+   528 ;; Auto vars:     Size  Location     Type
+   529 ;;		None
+   530 ;; Return value:  Size  Location     Type
+   531 ;;                  1    wreg      void 
+   532 ;; Registers used:
+   533 ;;		wreg, status,2, status,0
+   534 ;; Tracked objects:
+   535 ;;		On entry : 0/0
+   536 ;;		On exit  : 0/0
+   537 ;;		Unchanged: 0/0
+   538 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   539 ;;      Params:         0       0       0       0       0       0       0
+   540 ;;      Locals:         0       0       0       0       0       0       0
+   541 ;;      Temps:          0       0       0       0       0       0       0
+   542 ;;      Totals:         0       0       0       0       0       0       0
+   543 ;;Total ram usage:        0 bytes
+   544 ;; Hardware stack levels used: 1
+   545 ;; Hardware stack levels required when called: 4
+   546 ;; This function calls:
+   547 ;;		Nothing
+   548 ;; This function is called by:
+   549 ;;		_main
+   550 ;; This function uses a non-reentrant model
+   551 ;;
+   552                           
+   553                           	psect	text4
+   554  000768                     __ptext4:
+   555                           	callstack 0
+   556  000768                     _set_byte_transmission:
+   557                           	callstack 0
+   558  000768  FFFF               	dw	65535	; assembler added errata NOP
+   559  00076A                     
+   560                           ;CAN_MAIN.C: 212:     byte1 = speed_cmd_status;
+   561  00076A  C010  F00E         	movff	_speed_cmd_status,_byte1
+   562  00076E                     
+   563                           ;CAN_MAIN.C: 213:     byte2 = (cc_switch_stat << 4) | (cc_nrcs_stat);
+   564  00076E  3816               	swapf	_cc_switch_stat^0,w,c
+   565  000770  0BF0               	andlw	240
+   566  000772  1017               	iorwf	_cc_nrcs_stat^0,w,c
+   567  000774  6E0D               	movwf	_byte2^0,c
+   568  000776                     
+   569                           ;CAN_MAIN.C: 214:     byte3 = warning_lamp_status;
+   570  000776  C014  F00C         	movff	_warning_lamp_status,_byte3
+   571  00077A  0012               	return		;funcret
+   572  00077C  FFFF               	dw	65535	; errata NOP
+   573  00077E                     __end_of_set_byte_transmission:
+   574                           	callstack 0
+   575                           
+   576 ;; *************** function _set_baudrate *****************
+   577 ;; Defined at:
+   578 ;;		line 25 in file "CAN_FN_DEFNITION.c"
+   579 ;; Parameters:    Size  Location     Type
+   580 ;;		None
+   581 ;; Auto vars:     Size  Location     Type
+   582 ;;		None
+   583 ;; Return value:  Size  Location     Type
+   584 ;;                  1    wreg      void 
+   585 ;; Registers used:
+   586 ;;		wreg, status,2, status,0, cstack
+   587 ;; Tracked objects:
+   588 ;;		On entry : 0/0
+   589 ;;		On exit  : 0/0
+   590 ;;		Unchanged: 0/0
+   591 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   592 ;;      Params:         0       0       0       0       0       0       0
+   593 ;;      Locals:         0       0       0       0       0       0       0
+   594 ;;      Temps:          0       0       0       0       0       0       0
+   595 ;;      Totals:         0       0       0       0       0       0       0
+   596 ;;Total ram usage:        0 bytes
+   597 ;; Hardware stack levels used: 1
+   598 ;; Hardware stack levels required when called: 5
+   599 ;; This function calls:
+   600 ;;		_get_mode
+   601 ;;		_set_mode
+   602 ;; This function is called by:
+   603 ;;		_main
+   604 ;; This function uses a non-reentrant model
+   605 ;;
+   606                           
+   607                           	psect	text5
+   608  0006C6                     __ptext5:
+   609                           	callstack 0
+   610  0006C6                     _set_baudrate:
+   611                           	callstack 0
+   612  0006C6  FFFF               	dw	65535	; assembler added errata NOP
+   613  0006C8                     
+   614                           ;CAN_FN_DEFNITION.c: 28:     set_mode(CONFIG_MODE);
+   615  0006C8  0E80               	movlw	128
+   616  0006CA  ECD9  F003         	call	_set_mode
+   617  0006CE                     
+   618                           ;CAN_FN_DEFNITION.c: 29:     get_mode(CONFIG_MODE);
+   619  0006CE  0E80               	movlw	128
+   620  0006D0  EC8A  F003         	call	_get_mode
+   621  0006D4                     
+   622                           ;CAN_FN_DEFNITION.c: 30:     BRGCON1 = 0XC1;
+   623  0006D4  0EC1               	movlw	193
+   624  0006D6  6E70               	movwf	112,c	;volatile
+   625  0006D8                     
+   626                           ;CAN_FN_DEFNITION.c: 31:     BRGCON2 = 0XAE;
+   627  0006D8  0EAE               	movlw	174
+   628  0006DA  6E71               	movwf	113,c	;volatile
+   629  0006DC                     
+   630                           ;CAN_FN_DEFNITION.c: 32:     BRGCON3 = 0X45;
+   631  0006DC  0E45               	movlw	69
+   632  0006DE  6E72               	movwf	114,c	;volatile
+   633  0006E0                     
+   634                           ;CAN_FN_DEFNITION.c: 33:     CIOCON = 0X20;
+   635  0006E0  0E20               	movlw	32
+   636  0006E2  6E73               	movwf	115,c	;volatile
+   637  0006E4                     
+   638                           ;CAN_FN_DEFNITION.c: 34:     set_mode(NORMAL_MODE_TRANS);
+   639  0006E4  0E08               	movlw	8
+   640  0006E6  ECD9  F003         	call	_set_mode
+   641  0006EA  0012               	return		;funcret
+   642  0006EC  FFFF               	dw	65535	; errata NOP
+   643  0006EE                     __end_of_set_baudrate:
+   644                           	callstack 0
+   645                           
+   646 ;; *************** function _get_mode *****************
+   647 ;; Defined at:
+   648 ;;		line 42 in file "CAN_FN_DEFNITION.c"
+   649 ;; Parameters:    Size  Location     Type
+   650 ;;  mode            1    wreg     unsigned char 
+   651 ;; Auto vars:     Size  Location     Type
+   652 ;;  mode            1    1[COMRAM] unsigned char 
+   653 ;; Return value:  Size  Location     Type
+   654 ;;                  1    wreg      void 
+   655 ;; Registers used:
+   656 ;;		wreg, status,2, status,0
+   657 ;; Tracked objects:
+   658 ;;		On entry : 0/0
+   659 ;;		On exit  : 0/0
+   660 ;;		Unchanged: 0/0
+   661 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   662 ;;      Params:         0       0       0       0       0       0       0
+   663 ;;      Locals:         1       0       0       0       0       0       0
+   664 ;;      Temps:          0       0       0       0       0       0       0
+   665 ;;      Totals:         1       0       0       0       0       0       0
+   666 ;;Total ram usage:        1 bytes
+   667 ;; Hardware stack levels used: 1
+   668 ;; Hardware stack levels required when called: 4
+   669 ;; This function calls:
+   670 ;;		Nothing
+   671 ;; This function is called by:
+   672 ;;		_set_baudrate
+   673 ;; This function uses a non-reentrant model
+   674 ;;
+   675                           
+   676                           	psect	text6
+   677  000714                     __ptext6:
+   678                           	callstack 0
+   679  000714                     _get_mode:
+   680                           	callstack 0
+   681  000714  FFFF               	dw	65535	; assembler added errata NOP
+   682                           
+   683                           ;incstack = 0
+   684                           ;get_mode@mode stored from wreg
+   685  000716  6E19               	movwf	get_mode@mode^0,c
+   686  000718                     l1081:
+   687  000718  FFFF               	dw	65535	; assembler added errata NOP
+   688  00071A  5019               	movf	get_mode@mode^0,w,c
+   689  00071C  186E               	xorwf	110,w,c	;volatile
+   690  00071E  A4D8               	btfss	status,2,c
+   691  000720  EF94  F003         	goto	u411
+   692  000724  EF97  F003         	goto	u410
+   693  000728                     u411:
+   694  000728  FFFF               	dw	65535	; assembler added errata NOP
+   695  00072A  EF8C  F003         	goto	l1081
+   696  00072E                     u410:
+   697  00072E  FFFF               	dw	65535	; assembler added errata NOP
+   698  000730  0012               	return		;funcret
+   699  000732  FFFF               	dw	65535	; errata NOP
+   700  000734                     __end_of_get_mode:
+   701                           	callstack 0
+   702                           
+   703 ;; *************** function _init_inp_out *****************
+   704 ;; Defined at:
+   705 ;;		line 106 in file "CAN_MAIN.C"
+   706 ;; Parameters:    Size  Location     Type
+   707 ;;		None
+   708 ;; Auto vars:     Size  Location     Type
+   709 ;;		None
+   710 ;; Return value:  Size  Location     Type
+   711 ;;                  1    wreg      void 
+   712 ;; Registers used:
+   713 ;;		None
+   714 ;; Tracked objects:
+   715 ;;		On entry : 0/0
+   716 ;;		On exit  : 0/0
+   717 ;;		Unchanged: 0/0
+   718 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   719 ;;      Params:         0       0       0       0       0       0       0
+   720 ;;      Locals:         0       0       0       0       0       0       0
+   721 ;;      Temps:          0       0       0       0       0       0       0
+   722 ;;      Totals:         0       0       0       0       0       0       0
+   723 ;;Total ram usage:        0 bytes
+   724 ;; Hardware stack levels used: 1
+   725 ;; Hardware stack levels required when called: 4
+   726 ;; This function calls:
+   727 ;;		Nothing
+   728 ;; This function is called by:
+   729 ;;		_main
+   730 ;; This function uses a non-reentrant model
+   731 ;;
+   732                           
+   733                           	psect	text7
+   734  00077E                     __ptext7:
+   735                           	callstack 0
+   736  00077E                     _init_inp_out:
+   737                           	callstack 0
+   738  00077E  FFFF               	dw	65535	; assembler added errata NOP
+   739  000780                     
+   740                           ;CAN_MAIN.C: 116:     TRISBbits.RB0 = 1;
+   741  000780  8093               	bsf	147,0,c	;volatile
+   742                           
+   743                           ;CAN_MAIN.C: 117:     TRISBbits.RB1 = 1;
+   744  000782  8293               	bsf	147,1,c	;volatile
+   745                           
+   746                           ;CAN_MAIN.C: 118:     TRISCbits.RC0 = 0;
+   747  000784  9094               	bcf	148,0,c	;volatile
+   748                           
+   749                           ;CAN_MAIN.C: 119:     TRISCbits.RC1 = 0;
+   750  000786  9294               	bcf	148,1,c	;volatile
+   751                           
+   752                           ;CAN_MAIN.C: 120:     INTCON2bits.RBPU = 0;
+   753  000788  9EF1               	bcf	241,7,c	;volatile
+   754                           
+   755                           ;CAN_MAIN.C: 121:     PORTCbits.RC0 = 0;
+   756  00078A  9082               	bcf	130,0,c	;volatile
+   757                           
+   758                           ;CAN_MAIN.C: 122:     PORTCbits.RC1 = 0;
+   759  00078C  9282               	bcf	130,1,c	;volatile
+   760  00078E  0012               	return		;funcret
+   761  000790  FFFF               	dw	65535	; errata NOP
+   762  000792                     __end_of_init_inp_out:
+   763                           	callstack 0
+   764                           
+   765 ;; *************** function _change_err_stat_nLED *****************
+   766 ;; Defined at:
+   767 ;;		line 88 in file "CAN_MAIN.C"
+   768 ;; Parameters:    Size  Location     Type
+   769 ;;		None
+   770 ;; Auto vars:     Size  Location     Type
+   771 ;;		None
+   772 ;; Return value:  Size  Location     Type
+   773 ;;                  1    wreg      void 
+   774 ;; Registers used:
+   775 ;;		wreg, status,2, status,0
+   776 ;; Tracked objects:
+   777 ;;		On entry : 0/0
+   778 ;;		On exit  : 0/0
+   779 ;;		Unchanged: 0/0
+   780 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   781 ;;      Params:         0       0       0       0       0       0       0
+   782 ;;      Locals:         0       0       0       0       0       0       0
+   783 ;;      Temps:          0       0       0       0       0       0       0
+   784 ;;      Totals:         0       0       0       0       0       0       0
+   785 ;;Total ram usage:        0 bytes
+   786 ;; Hardware stack levels used: 1
+   787 ;; Hardware stack levels required when called: 4
+   788 ;; This function calls:
+   789 ;;		Nothing
+   790 ;; This function is called by:
+   791 ;;		_main
+   792 ;; This function uses a non-reentrant model
+   793 ;;
+   794                           
+   795                           	psect	text8
+   796  000630                     __ptext8:
+   797                           	callstack 0
+   798  000630                     _change_err_stat_nLED:
+   799                           	callstack 0
+   800  000630  FFFF               	dw	65535	; assembler added errata NOP
+   801  000632                     
+   802                           ;CAN_MAIN.C: 91:  if(cc_switch_stat ==1 && fault_counter ==1)
+   803  000632  0416               	decf	_cc_switch_stat^0,w,c
+   804  000634  A4D8               	btfss	status,2,c
+   805  000636  EF1F  F003         	goto	u511
+   806  00063A  EF22  F003         	goto	u510
+   807  00063E                     u511:
+   808  00063E  FFFF               	dw	65535	; assembler added errata NOP
+   809  000640  EF36  F003         	goto	l1135
+   810  000644                     u510:
+   811  000644  FFFF               	dw	65535	; assembler added errata NOP
+   812  000646  0412               	decf	_fault_counter^0,w,c
+   813  000648  A4D8               	btfss	status,2,c
+   814  00064A  EF29  F003         	goto	u521
+   815  00064E  EF2C  F003         	goto	u520
+   816  000652                     u521:
+   817  000652  FFFF               	dw	65535	; assembler added errata NOP
+   818  000654  EF36  F003         	goto	l1135
+   819  000658                     u520:
+   820  000658  FFFF               	dw	65535	; assembler added errata NOP
+   821  00065A                     
+   822                           ;CAN_MAIN.C: 92:         {;CAN_MAIN.C: 93:             cc_nrcs_stat = 1;
+   823  00065A  0E01               	movlw	1
+   824  00065C  6E17               	movwf	_cc_nrcs_stat^0,c
+   825  00065E                     
+   826                           ;CAN_MAIN.C: 94:             PORTCbits.RC1 = cc_nrcs_stat;
+   827  00065E  B017               	btfsc	_cc_nrcs_stat^0,0,c
+   828  000660  D002               	bra	u535
+   829  000662  9282               	bcf	130,1,c	;volatile
+   830  000664  D001               	bra	u536
+   831  000666                     u535:
+   832  000666  8282               	bsf	130,1,c	;volatile
+   833  000668                     u536:
+   834                           
+   835                           ;CAN_MAIN.C: 96:         }
+   836  000668  EF3E  F003         	goto	l1139
+   837  00066C                     l1135:
+   838  00066C  FFFF               	dw	65535	; assembler added errata NOP
+   839                           
+   840                           ;CAN_MAIN.C: 98:         {;CAN_MAIN.C: 99:             cc_nrcs_stat = 0;
+   841  00066E  0E00               	movlw	0
+   842  000670  6E17               	movwf	_cc_nrcs_stat^0,c
+   843  000672                     
+   844                           ;CAN_MAIN.C: 100:            PORTCbits.RC1 = cc_nrcs_stat;
+   845  000672  B017               	btfsc	_cc_nrcs_stat^0,0,c
+   846  000674  D002               	bra	u545
+   847  000676  9282               	bcf	130,1,c	;volatile
+   848  000678  D001               	bra	u546
+   849  00067A                     u545:
+   850  00067A  8282               	bsf	130,1,c	;volatile
+   851  00067C                     u546:
+   852  00067C                     l1139:
+   853  00067C  FFFF               	dw	65535	; assembler added errata NOP
+   854                           
+   855                           ;CAN_MAIN.C: 103:         warning_lamp_status = cc_nrcs_stat;
+   856  00067E  C017  F014         	movff	_cc_nrcs_stat,_warning_lamp_status
+   857  000682  0012               	return		;funcret
+   858  000684  FFFF               	dw	65535	; errata NOP
+   859  000686                     __end_of_change_err_stat_nLED:
+   860                           	callstack 0
+   861                           
+   862 ;; *************** function _cc_led_change *****************
+   863 ;; Defined at:
+   864 ;;		line 69 in file "CAN_MAIN.C"
+   865 ;; Parameters:    Size  Location     Type
+   866 ;;		None
+   867 ;; Auto vars:     Size  Location     Type
+   868 ;;		None
+   869 ;; Return value:  Size  Location     Type
+   870 ;;                  1    wreg      void 
+   871 ;; Registers used:
+   872 ;;		wreg, status,2, status,0
+   873 ;; Tracked objects:
+   874 ;;		On entry : 0/0
+   875 ;;		On exit  : 0/0
+   876 ;;		Unchanged: 0/0
+   877 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   878 ;;      Params:         0       0       0       0       0       0       0
+   879 ;;      Locals:         0       0       0       0       0       0       0
+   880 ;;      Temps:          2       0       0       0       0       0       0
+   881 ;;      Totals:         2       0       0       0       0       0       0
+   882 ;;Total ram usage:        2 bytes
+   883 ;; Hardware stack levels used: 1
+   884 ;; Hardware stack levels required when called: 4
+   885 ;; This function calls:
+   886 ;;		Nothing
+   887 ;; This function is called by:
+   888 ;;		_main
+   889 ;; This function uses a non-reentrant model
+   890 ;;
+   891                           
+   892                           	psect	text9
+   893  0003FE                     __ptext9:
+   894                           	callstack 0
+   895  0003FE                     _cc_led_change:
+   896                           	callstack 0
+   897  0003FE  FFFF               	dw	65535	; assembler added errata NOP
+   898  000400                     
+   899                           ;CAN_MAIN.C: 72:         if(PORTBbits.RB0 == 0 && PORTBbits.RB1 == 1)
+   900  000400  B081               	btfsc	129,0,c	;volatile
+   901  000402  EF05  F002         	goto	u421
+   902  000406  EF08  F002         	goto	u420
+   903  00040A                     u421:
+   904  00040A  FFFF               	dw	65535	; assembler added errata NOP
+   905  00040C  EF2D  F002         	goto	l1117
+   906  000410                     u420:
+   907  000410  FFFF               	dw	65535	; assembler added errata NOP
+   908  000412  A281               	btfss	129,1,c	;volatile
+   909  000414  EF0E  F002         	goto	u431
+   910  000418  EF11  F002         	goto	u430
+   911  00041C                     u431:
+   912  00041C  FFFF               	dw	65535	; assembler added errata NOP
+   913  00041E  EF2D  F002         	goto	l1117
+   914  000422                     u430:
+   915  000422  FFFF               	dw	65535	; assembler added errata NOP
+   916  000424                     
+   917                           ;CAN_MAIN.C: 73:         {;CAN_MAIN.C: 74:             cc_switch_stat = !cc_switch_stat;
+   918  000424  5016               	movf	_cc_switch_stat^0,w,c
+   919  000426  B4D8               	btfsc	status,2,c
+   920  000428  EF18  F002         	goto	u441
+   921  00042C  EF1C  F002         	goto	u440
+   922  000430                     u441:
+   923  000430  FFFF               	dw	65535	; assembler added errata NOP
+   924  000432  0E01               	movlw	1
+   925  000434  EF1E  F002         	goto	u450
+   926  000438                     u440:
+   927  000438  FFFF               	dw	65535	; assembler added errata NOP
+   928  00043A  0E00               	movlw	0
+   929  00043C                     u450:
+   930  00043C  FFFF               	dw	65535	; assembler added errata NOP
+   931  00043E  6E16               	movwf	_cc_switch_stat^0,c
+   932  000440                     
+   933                           ;CAN_MAIN.C: 75:             _delay((unsigned long)((200)*(20000000/4000.0)));
+   934  000440  0E04               	movlw	4
+   935  000442  6E1A               	movwf	(??_cc_led_change+1)^0,c
+   936  000444  0ECF               	movlw	207
+   937  000446  6E19               	movwf	??_cc_led_change^0,c
+   938  000448  0EA5               	movlw	165
+   939  00044A                     u637:
+   940  00044A  FFFF               	dw	65535	; errata NOP
+   941  00044C  2EE8               	decfsz	wreg,f,c
+   942  00044E  D7FD               	bra	u637
+   943  000450  2E19               	decfsz	??_cc_led_change^0,f,c
+   944  000452  D7FB               	bra	u637
+   945  000454  2E1A               	decfsz	(??_cc_led_change+1)^0,f,c
+   946  000456  D7F9               	bra	u637
+   947  000458  D000               	nop2	
+   948  00045A                     l1117:
+   949  00045A  FFFF               	dw	65535	; assembler added errata NOP
+   950                           
+   951                           ;CAN_MAIN.C: 77:         if(PORTBbits.RB1 == 0 && cc_switch_stat == 1)
+   952  00045C  B281               	btfsc	129,1,c	;volatile
+   953  00045E  EF33  F002         	goto	u461
+   954  000462  EF36  F002         	goto	u460
+   955  000466                     u461:
+   956  000466  FFFF               	dw	65535	; assembler added errata NOP
+   957  000468  EF5C  F002         	goto	l1125
+   958  00046C                     u460:
+   959  00046C  FFFF               	dw	65535	; assembler added errata NOP
+   960  00046E  0416               	decf	_cc_switch_stat^0,w,c
+   961  000470  A4D8               	btfss	status,2,c
+   962  000472  EF3D  F002         	goto	u471
+   963  000476  EF40  F002         	goto	u470
+   964  00047A                     u471:
+   965  00047A  FFFF               	dw	65535	; assembler added errata NOP
+   966  00047C  EF5C  F002         	goto	l1125
+   967  000480                     u470:
+   968  000480  FFFF               	dw	65535	; assembler added errata NOP
+   969  000482                     
+   970                           ;CAN_MAIN.C: 78:         {;CAN_MAIN.C: 79:             cc_switch_stat = !cc_switch_stat;
+   971  000482  5016               	movf	_cc_switch_stat^0,w,c
+   972  000484  B4D8               	btfsc	status,2,c
+   973  000486  EF47  F002         	goto	u481
+   974  00048A  EF4B  F002         	goto	u480
+   975  00048E                     u481:
+   976  00048E  FFFF               	dw	65535	; assembler added errata NOP
+   977  000490  0E01               	movlw	1
+   978  000492  EF4D  F002         	goto	u490
+   979  000496                     u480:
+   980  000496  FFFF               	dw	65535	; assembler added errata NOP
+   981  000498  0E00               	movlw	0
+   982  00049A                     u490:
+   983  00049A  FFFF               	dw	65535	; assembler added errata NOP
+   984  00049C  6E16               	movwf	_cc_switch_stat^0,c
+   985  00049E                     
+   986                           ;CAN_MAIN.C: 80:              _delay((unsigned long)((200)*(20000000/4000.0)));
+   987  00049E  0E04               	movlw	4
+   988  0004A0  6E1A               	movwf	(??_cc_led_change+1)^0,c
+   989  0004A2  0ECF               	movlw	207
+   990  0004A4  6E19               	movwf	??_cc_led_change^0,c
+   991  0004A6  0EA5               	movlw	165
+   992  0004A8                     u647:
+   993  0004A8  FFFF               	dw	65535	; errata NOP
+   994  0004AA  2EE8               	decfsz	wreg,f,c
+   995  0004AC  D7FD               	bra	u647
+   996  0004AE  2E19               	decfsz	??_cc_led_change^0,f,c
+   997  0004B0  D7FB               	bra	u647
+   998  0004B2  2E1A               	decfsz	(??_cc_led_change+1)^0,f,c
+   999  0004B4  D7F9               	bra	u647
+  1000  0004B6  D000               	nop2	
+  1001  0004B8                     l1125:
+  1002  0004B8  FFFF               	dw	65535	; assembler added errata NOP
+  1003                           
+  1004                           ;CAN_MAIN.C: 83:         PORTCbits.RC0 = cc_switch_stat;
+  1005  0004BA  B016               	btfsc	_cc_switch_stat^0,0,c
+  1006  0004BC  D002               	bra	u505
+  1007  0004BE  9082               	bcf	130,0,c	;volatile
+  1008  0004C0  D001               	bra	u506
+  1009  0004C2                     u505:
+  1010  0004C2  8082               	bsf	130,0,c	;volatile
+  1011  0004C4                     u506:
+  1012  0004C4  0012               	return		;funcret
+  1013  0004C6  FFFF               	dw	65535	; errata NOP
+  1014  0004C8                     __end_of_cc_led_change:
+  1015                           	callstack 0
+  1016                           
+  1017 ;; *************** function _can_write *****************
+  1018 ;; Defined at:
+  1019 ;;		line 109 in file "CAN_FN_DEFNITION.c"
+  1020 ;; Parameters:    Size  Location     Type
+  1021 ;;  byte_speed_c    1    wreg     unsigned char 
+  1022 ;;  byte_cc_stat    1    2[COMRAM] unsigned char 
+  1023 ;;  wl_status_3     1    3[COMRAM] unsigned char 
+  1024 ;; Auto vars:     Size  Location     Type
+  1025 ;;  byte_speed_c    1    6[COMRAM] unsigned char 
+  1026 ;; Return value:  Size  Location     Type
+  1027 ;;                  1    wreg      void 
+  1028 ;; Registers used:
+  1029 ;;		wreg, fsr2l, fsr2h, status,2, cstack
+  1030 ;; Tracked objects:
+  1031 ;;		On entry : 0/0
+  1032 ;;		On exit  : 0/0
+  1033 ;;		Unchanged: 0/0
+  1034 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1035 ;;      Params:         2       0       0       0       0       0       0
+  1036 ;;      Locals:         1       0       0       0       0       0       0
+  1037 ;;      Temps:          2       0       0       0       0       0       0
+  1038 ;;      Totals:         5       0       0       0       0       0       0
+  1039 ;;Total ram usage:        5 bytes
+  1040 ;; Hardware stack levels used: 1
+  1041 ;; Hardware stack levels required when called: 5
+  1042 ;; This function calls:
+  1043 ;;		_set_mode
+  1044 ;; This function is called by:
+  1045 ;;		_main
+  1046 ;; This function uses a non-reentrant model
+  1047 ;;
+  1048                           
+  1049                           	psect	text10
+  1050  000546                     __ptext10:
+  1051                           	callstack 0
+  1052  000546                     _can_write:
+  1053                           	callstack 0
+  1054  000546  FFFF               	dw	65535	; assembler added errata NOP
+  1055                           
+  1056                           ;incstack = 0
+  1057                           ;can_write@byte_speed_cmd_1 stored from wreg
+  1058  000548  6E1E               	movwf	can_write@byte_speed_cmd_1^0,c
+  1059  00054A                     
+  1060                           ;CAN_FN_DEFNITION.c: 109: void can_write(char byte_speed_cmd_1,char byte_cc_status_2,cha
+      +                          r wl_status_3);CAN_FN_DEFNITION.c: 110: {;CAN_FN_DEFNITION.c: 111:     _delay((unsigned 
+      +                          long)((200)*(20000000/4000.0)));
+  1061  00054A  0E04               	movlw	4
+  1062  00054C  6E1D               	movwf	(??_can_write+1)^0,c
+  1063  00054E  0ECF               	movlw	207
+  1064  000550  6E1C               	movwf	??_can_write^0,c
+  1065  000552  0EA5               	movlw	165
+  1066  000554                     u657:
+  1067  000554  FFFF               	dw	65535	; errata NOP
+  1068  000556  2EE8               	decfsz	wreg,f,c
+  1069  000558  D7FD               	bra	u657
+  1070  00055A  2E1C               	decfsz	??_can_write^0,f,c
+  1071  00055C  D7FB               	bra	u657
+  1072  00055E  2E1D               	decfsz	(??_can_write+1)^0,f,c
+  1073  000560  D7F9               	bra	u657
+  1074  000562  D000               	nop2	
+  1075  000564                     
+  1076                           ;CAN_FN_DEFNITION.c: 112:     set_mode(NORMAL_MODE_TRANS);
+  1077  000564  0E08               	movlw	8
+  1078  000566  ECD9  F003         	call	_set_mode
+  1079                           
+  1080                           ;CAN_FN_DEFNITION.c: 114:      CIOCON = 0X20;
+  1081  00056A  0E20               	movlw	32
+  1082  00056C  6E73               	movwf	115,c	;volatile
+  1083  00056E                     
+  1084                           ;CAN_FN_DEFNITION.c: 117:      TXB0SIDH = 0x67;
+  1085  00056E  0E67               	movlw	103
+  1086  000570  CFE8 FF41          	movff	wreg,3905
+  1087  000574                     
+  1088                           ;CAN_FN_DEFNITION.c: 118:      TXB0SIDL = 0xE0;
+  1089  000574  0EE0               	movlw	224
+  1090  000576  CFE8 FF42          	movff	wreg,3906
+  1091  00057A                     
+  1092                           ;CAN_FN_DEFNITION.c: 119:      TXB0DLC = 0X08;
+  1093  00057A  0E08               	movlw	8
+  1094  00057C  CFE8 FF45          	movff	wreg,3909
+  1095  000580                     
+  1096                           ;CAN_FN_DEFNITION.c: 120:      TXB0D0 = byte_speed_cmd_1;
+  1097  000580  EE2F F046          	lfsr	2,3910
+  1098  000584  C01E  FFDF         	movff	can_write@byte_speed_cmd_1,indf2
+  1099  000588                     
+  1100                           ;CAN_FN_DEFNITION.c: 121:      TXB0D1 = byte_cc_status_2;
+  1101  000588  EE2F F047          	lfsr	2,3911
+  1102  00058C  C01A  FFDF         	movff	can_write@byte_cc_status_2,indf2
+  1103  000590                     
+  1104                           ;CAN_FN_DEFNITION.c: 122:      TXB0D2 = wl_status_3;
+  1105  000590  EE2F F048          	lfsr	2,3912
+  1106  000594  C01B  FFDF         	movff	can_write@wl_status_3,indf2
+  1107  000598                     
+  1108                           ;CAN_FN_DEFNITION.c: 123:      TXB0D3 = 0x00;
+  1109  000598  0E00               	movlw	0
+  1110  00059A  CFE8 FF49          	movff	wreg,3913
+  1111  00059E                     
+  1112                           ;CAN_FN_DEFNITION.c: 124:      TXB0D4 = 0X00;
+  1113  00059E  0E00               	movlw	0
+  1114  0005A0  CFE8 FF4A          	movff	wreg,3914
+  1115  0005A4                     
+  1116                           ;CAN_FN_DEFNITION.c: 125:      TXB0D5 = 0X00;
+  1117  0005A4  0E00               	movlw	0
+  1118  0005A6  CFE8 FF4B          	movff	wreg,3915
+  1119  0005AA                     
+  1120                           ;CAN_FN_DEFNITION.c: 126:      TXB0D6 = 0X00;
+  1121  0005AA  0E00               	movlw	0
+  1122  0005AC  CFE8 FF4C          	movff	wreg,3916
+  1123  0005B0                     
+  1124                           ;CAN_FN_DEFNITION.c: 127:      TXB0D7 = 0X00;
+  1125  0005B0  0E00               	movlw	0
+  1126  0005B2  CFE8 FF4D          	movff	wreg,3917
+  1127  0005B6                     
+  1128                           ;CAN_FN_DEFNITION.c: 128:      TXB0CON = 0x08;
+  1129  0005B6  0E08               	movlw	8
+  1130  0005B8  CFE8 FF40          	movff	wreg,3904
+  1131  0005BC  0012               	return		;funcret
+  1132  0005BE  FFFF               	dw	65535	; errata NOP
+  1133  0005C0                     __end_of_can_write:
+  1134                           	callstack 0
+  1135                           
+  1136 ;; *************** function _set_mode *****************
+  1137 ;; Defined at:
+  1138 ;;		line 37 in file "CAN_FN_DEFNITION.c"
+  1139 ;; Parameters:    Size  Location     Type
+  1140 ;;  mode            1    wreg     unsigned char 
+  1141 ;; Auto vars:     Size  Location     Type
+  1142 ;;  mode            1    1[COMRAM] unsigned char 
+  1143 ;; Return value:  Size  Location     Type
+  1144 ;;                  1    wreg      void 
+  1145 ;; Registers used:
+  1146 ;;		wreg
+  1147 ;; Tracked objects:
+  1148 ;;		On entry : 0/0
+  1149 ;;		On exit  : 0/0
+  1150 ;;		Unchanged: 0/0
+  1151 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1152 ;;      Params:         0       0       0       0       0       0       0
+  1153 ;;      Locals:         1       0       0       0       0       0       0
+  1154 ;;      Temps:          0       0       0       0       0       0       0
+  1155 ;;      Totals:         1       0       0       0       0       0       0
+  1156 ;;Total ram usage:        1 bytes
+  1157 ;; Hardware stack levels used: 1
+  1158 ;; Hardware stack levels required when called: 4
+  1159 ;; This function calls:
+  1160 ;;		Nothing
+  1161 ;; This function is called by:
+  1162 ;;		_set_baudrate
+  1163 ;;		_can_write
+  1164 ;; This function uses a non-reentrant model
+  1165 ;;
+  1166                           
+  1167                           	psect	text11
+  1168  0007B2                     __ptext11:
+  1169                           	callstack 0
+  1170  0007B2                     _set_mode:
+  1171                           	callstack 0
+  1172  0007B2  FFFF               	dw	65535	; assembler added errata NOP
+  1173                           
+  1174                           ;incstack = 0
+  1175                           ;set_mode@mode stored from wreg
+  1176  0007B4  6E19               	movwf	set_mode@mode^0,c
+  1177  0007B6                     
+  1178                           ;CAN_FN_DEFNITION.c: 37: void set_mode(char mode);CAN_FN_DEFNITION.c: 38: {;CAN_FN_DEFNI
+      +                          TION.c: 39:    CANCON = mode;
+  1179  0007B6  C019  FF6F         	movff	set_mode@mode,3951	;volatile
+  1180  0007BA  0012               	return		;funcret
+  1181  0007BC  FFFF               	dw	65535	; errata NOP
+  1182  0007BE                     __end_of_set_mode:
+  1183                           	callstack 0
+  1184                           
+  1185 ;; *************** function _can_init *****************
+  1186 ;; Defined at:
+  1187 ;;		line 18 in file "CAN_FN_DEFNITION.c"
+  1188 ;; Parameters:    Size  Location     Type
+  1189 ;;		None
+  1190 ;; Auto vars:     Size  Location     Type
+  1191 ;;		None
+  1192 ;; Return value:  Size  Location     Type
+  1193 ;;                  1    wreg      void 
+  1194 ;; Registers used:
+  1195 ;;		None
+  1196 ;; Tracked objects:
+  1197 ;;		On entry : 0/0
+  1198 ;;		On exit  : 0/0
+  1199 ;;		Unchanged: 0/0
+  1200 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1201 ;;      Params:         0       0       0       0       0       0       0
+  1202 ;;      Locals:         0       0       0       0       0       0       0
+  1203 ;;      Temps:          0       0       0       0       0       0       0
+  1204 ;;      Totals:         0       0       0       0       0       0       0
+  1205 ;;Total ram usage:        0 bytes
+  1206 ;; Hardware stack levels used: 1
+  1207 ;; Hardware stack levels required when called: 4
+  1208 ;; This function calls:
+  1209 ;;		Nothing
+  1210 ;; This function is called by:
+  1211 ;;		_main
+  1212 ;; This function uses a non-reentrant model
+  1213 ;;
+  1214                           
+  1215                           	psect	text12
+  1216  0007CA                     __ptext12:
+  1217                           	callstack 0
+  1218  0007CA                     _can_init:
+  1219                           	callstack 0
+  1220  0007CA  FFFF               	dw	65535	; assembler added errata NOP
+  1221  0007CC                     
+  1222                           ;CAN_FN_DEFNITION.c: 20:     TRISBbits.RB3 = 1;
+  1223  0007CC  8693               	bsf	147,3,c	;volatile
+  1224                           
+  1225                           ;CAN_FN_DEFNITION.c: 21:     TRISBbits.RB2 = 0;
+  1226  0007CE  9493               	bcf	147,2,c	;volatile
+  1227  0007D0  0012               	return		;funcret
+  1228  0007D2  FFFF               	dw	65535	; errata NOP
+  1229  0007D4                     __end_of_can_init:
+  1230                           	callstack 0
+  1231                           
+  1232 ;; *************** function _ISR1 *****************
+  1233 ;; Defined at:
+  1234 ;;		line 67 in file "CAN_FN_DEFNITION.c"
+  1235 ;; Parameters:    Size  Location     Type
+  1236 ;;		None
+  1237 ;; Auto vars:     Size  Location     Type
+  1238 ;;		None
+  1239 ;; Return value:  Size  Location     Type
+  1240 ;;                  1    wreg      void 
+  1241 ;; Registers used:
+  1242 ;;		wreg, status,2, status,0, cstack
+  1243 ;; Tracked objects:
+  1244 ;;		On entry : 0/0
+  1245 ;;		On exit  : 0/0
+  1246 ;;		Unchanged: 0/0
+  1247 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1248 ;;      Params:         0       0       0       0       0       0       0
+  1249 ;;      Locals:         0       0       0       0       0       0       0
+  1250 ;;      Temps:          0       0       0       0       0       0       0
+  1251 ;;      Totals:         0       0       0       0       0       0       0
+  1252 ;;Total ram usage:        0 bytes
+  1253 ;; Hardware stack levels used: 1
+  1254 ;; Hardware stack levels required when called: 3
+  1255 ;; This function calls:
+  1256 ;;		_can_read
+  1257 ;; This function is called by:
+  1258 ;;		Interrupt level 2
+  1259 ;; This function uses a non-reentrant model
+  1260 ;;
+  1261                           
+  1262                           	psect	intcode
+  1263  000008                     __pintcode:
+  1264                           	callstack 0
+  1265  000008                     _ISR1:
+  1266                           	callstack 0
+  1267  000008  FFFF               	dw	65535	; assembler added errata NOP
+  1268                           
+  1269                           ;incstack = 0
+  1270  00000A  821F               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
+  1271  00000C                     
+  1272                           ;CAN_FN_DEFNITION.c: 70:     if(PIR3bits.RXB0IF)
+  1273  00000C  A0A4               	btfss	164,0,c	;volatile
+  1274  00000E  EF0B  F000         	goto	i2u62_41
+  1275  000012  EF0E  F000         	goto	i2u62_40
+  1276  000016                     i2u62_41:
+  1277  000016  FFFF               	dw	65535	; assembler added errata NOP
+  1278  000018  EF12  F000         	goto	i2l268
+  1279  00001C                     i2u62_40:
+  1280  00001C  FFFF               	dw	65535	; assembler added errata NOP
+  1281  00001E                     
+  1282                           ;CAN_FN_DEFNITION.c: 71:     {;CAN_FN_DEFNITION.c: 74:         PIR3bits.RXB0IF = 0;
+  1283  00001E  90A4               	bcf	164,0,c	;volatile
+  1284  000020                     
+  1285                           ;CAN_FN_DEFNITION.c: 75:         can_read();
+  1286  000020  ECE0  F002         	call	_can_read	;wreg free
+  1287  000024                     i2l268:
+  1288  000024  FFFF               	dw	65535	; assembler added errata NOP
+  1289  000026  921F               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  1290  000028  0011               	retfie		f
+  1291  00002A  FFFF               	dw	65535	; errata NOP
+  1292  00002C                     __end_of_ISR1:
+  1293                           	callstack 0
+  1294                           
+  1295 ;; *************** function _can_read *****************
+  1296 ;; Defined at:
+  1297 ;;		line 80 in file "CAN_FN_DEFNITION.c"
+  1298 ;; Parameters:    Size  Location     Type
+  1299 ;;		None
+  1300 ;; Auto vars:     Size  Location     Type
+  1301 ;;		None
+  1302 ;; Return value:  Size  Location     Type
+  1303 ;;                  1    wreg      void 
+  1304 ;; Registers used:
+  1305 ;;		wreg, status,2, status,0, cstack
+  1306 ;; Tracked objects:
+  1307 ;;		On entry : 0/0
+  1308 ;;		On exit  : 0/0
+  1309 ;;		Unchanged: 0/0
+  1310 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1311 ;;      Params:         0       0       0       0       0       0       0
+  1312 ;;      Locals:         0       0       0       0       0       0       0
+  1313 ;;      Temps:          0       0       0       0       0       0       0
+  1314 ;;      Totals:         0       0       0       0       0       0       0
+  1315 ;;Total ram usage:        0 bytes
+  1316 ;; Hardware stack levels used: 1
+  1317 ;; Hardware stack levels required when called: 2
+  1318 ;; This function calls:
+  1319 ;;		_nrcs_data_extract
+  1320 ;;		i2_set_mode
+  1321 ;; This function is called by:
+  1322 ;;		_ISR1
+  1323 ;; This function uses a non-reentrant model
+  1324 ;;
+  1325                           
+  1326                           	psect	text14
+  1327  0005C0                     __ptext14:
+  1328                           	callstack 0
+  1329  0005C0                     _can_read:
+  1330                           	callstack 0
+  1331  0005C0  FFFF               	dw	65535	; assembler added errata NOP
+  1332  0005C2                     
+  1333                           ;CAN_FN_DEFNITION.c: 82:     set_mode(NORMAL_MODE_RECEIV);
+  1334  0005C2  0E0E               	movlw	14
+  1335  0005C4  ECDF  F003         	call	i2_set_mode
+  1336  0005C8                     
+  1337                           ;CAN_FN_DEFNITION.c: 83:     RXB0CON = 0x00;
+  1338  0005C8  0E00               	movlw	0
+  1339  0005CA  6E60               	movwf	96,c	;volatile
+  1340  0005CC                     
+  1341                           ;CAN_FN_DEFNITION.c: 86:       data_byte[0] = RXB0D0;
+  1342  0005CC  CF66 F001          	movff	3942,_data_byte	;volatile
+  1343  0005D0                     
+  1344                           ;CAN_FN_DEFNITION.c: 87:       data_byte[1] = RXB0D1;
+  1345  0005D0  CF67 F002          	movff	3943,_data_byte+1	;volatile
+  1346  0005D4                     
+  1347                           ;CAN_FN_DEFNITION.c: 88:       data_byte[2] = RXB0D2;
+  1348  0005D4  CF68 F003          	movff	3944,_data_byte+2	;volatile
+  1349  0005D8                     
+  1350                           ;CAN_FN_DEFNITION.c: 89:       data_byte[3] = RXB0D3;
+  1351  0005D8  CF69 F004          	movff	3945,_data_byte+3	;volatile
+  1352  0005DC                     
+  1353                           ;CAN_FN_DEFNITION.c: 90:       data_byte[4] = RXB0D4;
+  1354  0005DC  CF6A F005          	movff	3946,_data_byte+4	;volatile
+  1355  0005E0                     
+  1356                           ;CAN_FN_DEFNITION.c: 91:       data_byte[5] = RXB0D5;
+  1357  0005E0  CF6B F006          	movff	3947,_data_byte+5	;volatile
+  1358  0005E4                     
+  1359                           ;CAN_FN_DEFNITION.c: 92:       data_byte[6] = RXB0D6;
+  1360  0005E4  CF6C F007          	movff	3948,_data_byte+6	;volatile
+  1361  0005E8                     
+  1362                           ;CAN_FN_DEFNITION.c: 93:       data_byte[7] = RXB0D7;
+  1363  0005E8  CF6D F008          	movff	3949,_data_byte+7	;volatile
+  1364  0005EC                     
+  1365                           ;CAN_FN_DEFNITION.c: 94:       data_byte[8] = RXB0DLC;
+  1366  0005EC  CF65 F009          	movff	3941,_data_byte+8	;volatile
+  1367  0005F0                     
+  1368                           ;CAN_FN_DEFNITION.c: 95:       data_byte[9] = RXB0SIDL;
+  1369  0005F0  CF62 F00A          	movff	3938,_data_byte+9	;volatile
+  1370  0005F4                     
+  1371                           ;CAN_FN_DEFNITION.c: 96:       data_byte[10]= RXB0SIDH;
+  1372  0005F4  CF61 F00B          	movff	3937,_data_byte+10	;volatile
+  1373  0005F8                     
+  1374                           ;CAN_FN_DEFNITION.c: 99:     RXB0CONbits.RXFUL = 0;
+  1375  0005F8  9E60               	bcf	96,7,c	;volatile
+  1376  0005FA                     
+  1377                           ;CAN_FN_DEFNITION.c: 100:     if(data_byte[9] == 0xE0 && data_byte[10] == 0x45)
+  1378  0005FA  0EE0               	movlw	224
+  1379  0005FC  180A               	xorwf	(_data_byte+9)^0,w,c
+  1380  0005FE  A4D8               	btfss	status,2,c
+  1381  000600  EF04  F003         	goto	i2u59_41
+  1382  000604  EF07  F003         	goto	i2u59_40
+  1383  000608                     i2u59_41:
+  1384  000608  FFFF               	dw	65535	; assembler added errata NOP
+  1385  00060A  EF15  F003         	goto	i2l272
+  1386  00060E                     i2u59_40:
+  1387  00060E  FFFF               	dw	65535	; assembler added errata NOP
+  1388  000610  0E45               	movlw	69
+  1389  000612  180B               	xorwf	(_data_byte+10)^0,w,c
+  1390  000614  A4D8               	btfss	status,2,c
+  1391  000616  EF0F  F003         	goto	i2u60_41
+  1392  00061A  EF12  F003         	goto	i2u60_40
+  1393  00061E                     i2u60_41:
+  1394  00061E  FFFF               	dw	65535	; assembler added errata NOP
+  1395  000620  EF15  F003         	goto	i2l272
+  1396  000624                     i2u60_40:
+  1397  000624  FFFF               	dw	65535	; assembler added errata NOP
+  1398  000626                     
+  1399                           ;CAN_FN_DEFNITION.c: 101:     nrcs_data_extract();
+  1400  000626  EC77  F003         	call	_nrcs_data_extract	;wreg free
+  1401  00062A                     i2l272:
+  1402  00062A  FFFF               	dw	65535	; assembler added errata NOP
+  1403  00062C  0012               	return		;funcret
+  1404  00062E  FFFF               	dw	65535	; errata NOP
+  1405  000630                     __end_of_can_read:
+  1406                           	callstack 0
+  1407                           
+  1408 ;; *************** function i2_set_mode *****************
+  1409 ;; Defined at:
+  1410 ;;		line 37 in file "CAN_FN_DEFNITION.c"
+  1411 ;; Parameters:    Size  Location     Type
+  1412 ;;  mode            1    wreg     unsigned char 
+  1413 ;; Auto vars:     Size  Location     Type
+  1414 ;;  mode            1    0[COMRAM] unsigned char 
+  1415 ;; Return value:  Size  Location     Type
+  1416 ;;                  1    wreg      void 
+  1417 ;; Registers used:
+  1418 ;;		wreg
+  1419 ;; Tracked objects:
+  1420 ;;		On entry : 0/0
+  1421 ;;		On exit  : 0/0
+  1422 ;;		Unchanged: 0/0
+  1423 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1424 ;;      Params:         0       0       0       0       0       0       0
+  1425 ;;      Locals:         1       0       0       0       0       0       0
+  1426 ;;      Temps:          0       0       0       0       0       0       0
+  1427 ;;      Totals:         1       0       0       0       0       0       0
+  1428 ;;Total ram usage:        1 bytes
+  1429 ;; Hardware stack levels used: 1
+  1430 ;; This function calls:
+  1431 ;;		Nothing
+  1432 ;; This function is called by:
+  1433 ;;		_can_read
+  1434 ;; This function uses a non-reentrant model
+  1435 ;;
+  1436                           
+  1437                           	psect	text15
+  1438  0007BE                     __ptext15:
+  1439                           	callstack 0
+  1440  0007BE                     i2_set_mode:
+  1441                           	callstack 0
+  1442  0007BE  FFFF               	dw	65535	; assembler added errata NOP
+  1443                           
+  1444                           ;incstack = 0
+  1445                           ;i2set_mode@mode stored from wreg
+  1446  0007C0  6E18               	movwf	i2set_mode@mode^0,c
+  1447  0007C2                     
+  1448                           ;CAN_FN_DEFNITION.c: 37: void set_mode(char mode);CAN_FN_DEFNITION.c: 38: {;CAN_FN_DEFNI
+      +                          TION.c: 39:    CANCON = mode;
+  1449  0007C2  C018  FF6F         	movff	i2set_mode@mode,3951	;volatile
+  1450  0007C6  0012               	return		;funcret
+  1451  0007C8  FFFF               	dw	65535	; errata NOP
+  1452  0007CA                     __end_ofi2_set_mode:
+  1453                           	callstack 0
+  1454                           
+  1455 ;; *************** function _nrcs_data_extract *****************
+  1456 ;; Defined at:
+  1457 ;;		line 126 in file "CAN_MAIN.C"
+  1458 ;; Parameters:    Size  Location     Type
+  1459 ;;		None
+  1460 ;; Auto vars:     Size  Location     Type
+  1461 ;;		None
+  1462 ;; Return value:  Size  Location     Type
+  1463 ;;                  1    wreg      void 
+  1464 ;; Registers used:
+  1465 ;;		wreg, status,2, status,0, cstack
+  1466 ;; Tracked objects:
+  1467 ;;		On entry : 0/0
+  1468 ;;		On exit  : 0/0
+  1469 ;;		Unchanged: 0/0
+  1470 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1471 ;;      Params:         0       0       0       0       0       0       0
+  1472 ;;      Locals:         0       0       0       0       0       0       0
+  1473 ;;      Temps:          0       0       0       0       0       0       0
+  1474 ;;      Totals:         0       0       0       0       0       0       0
+  1475 ;;Total ram usage:        0 bytes
+  1476 ;; Hardware stack levels used: 1
+  1477 ;; Hardware stack levels required when called: 1
+  1478 ;; This function calls:
+  1479 ;;		_find_distance_from_nrcs
+  1480 ;;		_find_fault_data
+  1481 ;;		_find_speed_cmd
+  1482 ;; This function is called by:
+  1483 ;;		_can_read
+  1484 ;; This function uses a non-reentrant model
+  1485 ;;
+  1486                           
+  1487                           	psect	text16
+  1488  0006EE                     __ptext16:
+  1489                           	callstack 0
+  1490  0006EE                     _nrcs_data_extract:
+  1491                           	callstack 0
+  1492  0006EE  FFFF               	dw	65535	; assembler added errata NOP
+  1493  0006F0                     
+  1494                           ;CAN_MAIN.C: 129:     nrcs_data = data_byte[2];
+  1495  0006F0  C003  F013         	movff	_data_byte+2,_nrcs_data
+  1496  0006F4                     
+  1497                           ;CAN_MAIN.C: 130:     nrcs_data = nrcs_data & 0x0f;
+  1498  0006F4  5013               	movf	_nrcs_data^0,w,c
+  1499  0006F6  0B0F               	andlw	15
+  1500  0006F8  6E13               	movwf	_nrcs_data^0,c
+  1501  0006FA                     
+  1502                           ;CAN_MAIN.C: 133:     current_speed = data_byte[3];
+  1503  0006FA  C004  F011         	movff	_data_byte+3,_current_speed
+  1504                           
+  1505                           ;CAN_MAIN.C: 134:     current_speed = current_speed & 0x03;
+  1506  0006FE  5011               	movf	_current_speed^0,w,c
+  1507  000700  0B03               	andlw	3
+  1508  000702  6E11               	movwf	_current_speed^0,c
+  1509  000704                     
+  1510                           ;CAN_MAIN.C: 136:     find_fault_data();
+  1511  000704  EC43  F003         	call	_find_fault_data	;wreg free
+  1512  000708                     
+  1513                           ;CAN_MAIN.C: 137:     find_distance_from_nrcs();
+  1514  000708  EC55  F001         	call	_find_distance_from_nrcs	;wreg free
+  1515  00070C                     
+  1516                           ;CAN_MAIN.C: 138:     find_speed_cmd();
+  1517  00070C  EC18  F000         	call	_find_speed_cmd	;wreg free
+  1518  000710  0012               	return		;funcret
+  1519  000712  FFFF               	dw	65535	; errata NOP
+  1520  000714                     __end_of_nrcs_data_extract:
+  1521                           	callstack 0
+  1522                           
+  1523 ;; *************** function _find_speed_cmd *****************
+  1524 ;; Defined at:
+  1525 ;;		line 171 in file "CAN_MAIN.C"
+  1526 ;; Parameters:    Size  Location     Type
+  1527 ;;		None
+  1528 ;; Auto vars:     Size  Location     Type
+  1529 ;;		None
+  1530 ;; Return value:  Size  Location     Type
+  1531 ;;                  1    wreg      void 
+  1532 ;; Registers used:
+  1533 ;;		wreg, status,2, status,0
+  1534 ;; Tracked objects:
+  1535 ;;		On entry : 0/0
+  1536 ;;		On exit  : 0/0
+  1537 ;;		Unchanged: 0/0
+  1538 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1539 ;;      Params:         0       0       0       0       0       0       0
+  1540 ;;      Locals:         0       0       0       0       0       0       0
+  1541 ;;      Temps:          0       0       0       0       0       0       0
+  1542 ;;      Totals:         0       0       0       0       0       0       0
+  1543 ;;Total ram usage:        0 bytes
+  1544 ;; Hardware stack levels used: 1
+  1545 ;; This function calls:
+  1546 ;;		Nothing
+  1547 ;; This function is called by:
+  1548 ;;		_nrcs_data_extract
+  1549 ;; This function uses a non-reentrant model
+  1550 ;;
+  1551                           
+  1552                           	psect	text17
+  1553  000030                     __ptext17:
+  1554                           	callstack 0
+  1555  000030                     _find_speed_cmd:
+  1556                           	callstack 0
+  1557  000030  FFFF               	dw	65535	; assembler added errata NOP
+  1558  000032                     
+  1559                           ;CAN_MAIN.C: 184:    if(range_stat == 1 && current_speed == 0x00)
+  1560  000032  040F               	decf	_range_stat^0,w,c
+  1561  000034  A4D8               	btfss	status,2,c
+  1562  000036  EF1F  F000         	goto	i2u17_41
+  1563  00003A  EF22  F000         	goto	i2u17_40
+  1564  00003E                     i2u17_41:
+  1565  00003E  FFFF               	dw	65535	; assembler added errata NOP
+  1566  000040  EF31  F000         	goto	i2l999
+  1567  000044                     i2u17_40:
+  1568  000044  FFFF               	dw	65535	; assembler added errata NOP
+  1569  000046  5011               	movf	_current_speed^0,w,c
+  1570  000048  A4D8               	btfss	status,2,c
+  1571  00004A  EF29  F000         	goto	i2u18_41
+  1572  00004E  EF2C  F000         	goto	i2u18_40
+  1573  000052                     i2u18_41:
+  1574  000052  FFFF               	dw	65535	; assembler added errata NOP
+  1575  000054  EF31  F000         	goto	i2l999
+  1576  000058                     i2u18_40:
+  1577  000058  FFFF               	dw	65535	; assembler added errata NOP
+  1578  00005A                     
+  1579                           ;CAN_MAIN.C: 185:        speed_cmd_status = 0x00;
+  1580  00005A  0E00               	movlw	0
+  1581  00005C  6E10               	movwf	_speed_cmd_status^0,c
+  1582  00005E  EF52  F001         	goto	i2l137
+  1583  000062                     i2l999:
+  1584  000062  FFFF               	dw	65535	; assembler added errata NOP
+  1585  000064  040F               	decf	_range_stat^0,w,c
+  1586  000066  A4D8               	btfss	status,2,c
+  1587  000068  EF38  F000         	goto	i2u19_41
+  1588  00006C  EF3B  F000         	goto	i2u19_40
+  1589  000070                     i2u19_41:
+  1590  000070  FFFF               	dw	65535	; assembler added errata NOP
+  1591  000072  EF4A  F000         	goto	i2l1005
+  1592  000076                     i2u19_40:
+  1593  000076  FFFF               	dw	65535	; assembler added errata NOP
+  1594  000078  0411               	decf	_current_speed^0,w,c
+  1595  00007A  A4D8               	btfss	status,2,c
+  1596  00007C  EF42  F000         	goto	i2u20_41
+  1597  000080  EF45  F000         	goto	i2u20_40
+  1598  000084                     i2u20_41:
+  1599  000084  FFFF               	dw	65535	; assembler added errata NOP
+  1600  000086  EF4A  F000         	goto	i2l1005
+  1601  00008A                     i2u20_40:
+  1602  00008A  FFFF               	dw	65535	; assembler added errata NOP
+  1603  00008C                     
+  1604                           ;CAN_MAIN.C: 187:        speed_cmd_status = 0x01;
+  1605  00008C  0E01               	movlw	1
+  1606  00008E  6E10               	movwf	_speed_cmd_status^0,c
+  1607  000090  EF52  F001         	goto	i2l137
+  1608  000094                     i2l1005:
+  1609  000094  FFFF               	dw	65535	; assembler added errata NOP
+  1610  000096  040F               	decf	_range_stat^0,w,c
+  1611  000098  A4D8               	btfss	status,2,c
+  1612  00009A  EF51  F000         	goto	i2u21_41
+  1613  00009E  EF54  F000         	goto	i2u21_40
+  1614  0000A2                     i2u21_41:
+  1615  0000A2  FFFF               	dw	65535	; assembler added errata NOP
+  1616  0000A4  EF64  F000         	goto	i2l1011
+  1617  0000A8                     i2u21_40:
+  1618  0000A8  FFFF               	dw	65535	; assembler added errata NOP
+  1619  0000AA  0E02               	movlw	2
+  1620  0000AC  1811               	xorwf	_current_speed^0,w,c
+  1621  0000AE  A4D8               	btfss	status,2,c
+  1622  0000B0  EF5C  F000         	goto	i2u22_41
+  1623  0000B4  EF5F  F000         	goto	i2u22_40
+  1624  0000B8                     i2u22_41:
+  1625  0000B8  FFFF               	dw	65535	; assembler added errata NOP
+  1626  0000BA  EF64  F000         	goto	i2l1011
+  1627  0000BE                     i2u22_40:
+  1628  0000BE  FFFF               	dw	65535	; assembler added errata NOP
+  1629  0000C0                     
+  1630                           ;CAN_MAIN.C: 189:        speed_cmd_status = 0x02;
+  1631  0000C0  0E02               	movlw	2
+  1632  0000C2  6E10               	movwf	_speed_cmd_status^0,c
+  1633  0000C4  EF52  F001         	goto	i2l137
+  1634  0000C8                     i2l1011:
+  1635  0000C8  FFFF               	dw	65535	; assembler added errata NOP
+  1636  0000CA  040F               	decf	_range_stat^0,w,c
+  1637  0000CC  A4D8               	btfss	status,2,c
+  1638  0000CE  EF6B  F000         	goto	i2u23_41
+  1639  0000D2  EF6E  F000         	goto	i2u23_40
+  1640  0000D6                     i2u23_41:
+  1641  0000D6  FFFF               	dw	65535	; assembler added errata NOP
+  1642  0000D8  EF7E  F000         	goto	i2l1017
+  1643  0000DC                     i2u23_40:
+  1644  0000DC  FFFF               	dw	65535	; assembler added errata NOP
+  1645  0000DE  0E03               	movlw	3
+  1646  0000E0  1811               	xorwf	_current_speed^0,w,c
+  1647  0000E2  A4D8               	btfss	status,2,c
+  1648  0000E4  EF76  F000         	goto	i2u24_41
+  1649  0000E8  EF79  F000         	goto	i2u24_40
+  1650  0000EC                     i2u24_41:
+  1651  0000EC  FFFF               	dw	65535	; assembler added errata NOP
+  1652  0000EE  EF7E  F000         	goto	i2l1017
+  1653  0000F2                     i2u24_40:
+  1654  0000F2  FFFF               	dw	65535	; assembler added errata NOP
+  1655  0000F4                     
+  1656                           ;CAN_MAIN.C: 191:        speed_cmd_status = 0x03;
+  1657  0000F4  0E03               	movlw	3
+  1658  0000F6  6E10               	movwf	_speed_cmd_status^0,c
+  1659  0000F8  EF52  F001         	goto	i2l137
+  1660  0000FC                     i2l1017:
+  1661  0000FC  FFFF               	dw	65535	; assembler added errata NOP
+  1662  0000FE  0E02               	movlw	2
+  1663  000100  180F               	xorwf	_range_stat^0,w,c
+  1664  000102  A4D8               	btfss	status,2,c
+  1665  000104  EF86  F000         	goto	i2u25_41
+  1666  000108  EF89  F000         	goto	i2u25_40
+  1667  00010C                     i2u25_41:
+  1668  00010C  FFFF               	dw	65535	; assembler added errata NOP
+  1669  00010E  EF98  F000         	goto	i2l1023
+  1670  000112                     i2u25_40:
+  1671  000112  FFFF               	dw	65535	; assembler added errata NOP
+  1672  000114  5011               	movf	_current_speed^0,w,c
+  1673  000116  A4D8               	btfss	status,2,c
+  1674  000118  EF90  F000         	goto	i2u26_41
+  1675  00011C  EF93  F000         	goto	i2u26_40
+  1676  000120                     i2u26_41:
+  1677  000120  FFFF               	dw	65535	; assembler added errata NOP
+  1678  000122  EF98  F000         	goto	i2l1023
+  1679  000126                     i2u26_40:
+  1680  000126  FFFF               	dw	65535	; assembler added errata NOP
+  1681  000128                     
+  1682                           ;CAN_MAIN.C: 193:        speed_cmd_status = 0x04;
+  1683  000128  0E04               	movlw	4
+  1684  00012A  6E10               	movwf	_speed_cmd_status^0,c
+  1685  00012C  EF52  F001         	goto	i2l137
+  1686  000130                     i2l1023:
+  1687  000130  FFFF               	dw	65535	; assembler added errata NOP
+  1688  000132  0E02               	movlw	2
+  1689  000134  180F               	xorwf	_range_stat^0,w,c
+  1690  000136  A4D8               	btfss	status,2,c
+  1691  000138  EFA0  F000         	goto	i2u27_41
+  1692  00013C  EFA3  F000         	goto	i2u27_40
+  1693  000140                     i2u27_41:
+  1694  000140  FFFF               	dw	65535	; assembler added errata NOP
+  1695  000142  EFB2  F000         	goto	i2l1029
+  1696  000146                     i2u27_40:
+  1697  000146  FFFF               	dw	65535	; assembler added errata NOP
+  1698  000148  0411               	decf	_current_speed^0,w,c
+  1699  00014A  A4D8               	btfss	status,2,c
+  1700  00014C  EFAA  F000         	goto	i2u28_41
+  1701  000150  EFAD  F000         	goto	i2u28_40
+  1702  000154                     i2u28_41:
+  1703  000154  FFFF               	dw	65535	; assembler added errata NOP
+  1704  000156  EFB2  F000         	goto	i2l1029
+  1705  00015A                     i2u28_40:
+  1706  00015A  FFFF               	dw	65535	; assembler added errata NOP
+  1707  00015C                     
+  1708                           ;CAN_MAIN.C: 195:        speed_cmd_status = 0x05;
+  1709  00015C  0E05               	movlw	5
+  1710  00015E  6E10               	movwf	_speed_cmd_status^0,c
+  1711  000160  EF52  F001         	goto	i2l137
+  1712  000164                     i2l1029:
+  1713  000164  FFFF               	dw	65535	; assembler added errata NOP
+  1714  000166  0E02               	movlw	2
+  1715  000168  180F               	xorwf	_range_stat^0,w,c
+  1716  00016A  A4D8               	btfss	status,2,c
+  1717  00016C  EFBA  F000         	goto	i2u29_41
+  1718  000170  EFBD  F000         	goto	i2u29_40
+  1719  000174                     i2u29_41:
+  1720  000174  FFFF               	dw	65535	; assembler added errata NOP
+  1721  000176  EFCD  F000         	goto	i2l1035
+  1722  00017A                     i2u29_40:
+  1723  00017A  FFFF               	dw	65535	; assembler added errata NOP
+  1724  00017C  0E02               	movlw	2
+  1725  00017E  1811               	xorwf	_current_speed^0,w,c
+  1726  000180  A4D8               	btfss	status,2,c
+  1727  000182  EFC5  F000         	goto	i2u30_41
+  1728  000186  EFC8  F000         	goto	i2u30_40
+  1729  00018A                     i2u30_41:
+  1730  00018A  FFFF               	dw	65535	; assembler added errata NOP
+  1731  00018C  EFCD  F000         	goto	i2l1035
+  1732  000190                     i2u30_40:
+  1733  000190  FFFF               	dw	65535	; assembler added errata NOP
+  1734  000192                     
+  1735                           ;CAN_MAIN.C: 197:        speed_cmd_status = 0x06;
+  1736  000192  0E06               	movlw	6
+  1737  000194  6E10               	movwf	_speed_cmd_status^0,c
+  1738  000196  EF52  F001         	goto	i2l137
+  1739  00019A                     i2l1035:
+  1740  00019A  FFFF               	dw	65535	; assembler added errata NOP
+  1741  00019C  0E02               	movlw	2
+  1742  00019E  180F               	xorwf	_range_stat^0,w,c
+  1743  0001A0  A4D8               	btfss	status,2,c
+  1744  0001A2  EFD5  F000         	goto	i2u31_41
+  1745  0001A6  EFD8  F000         	goto	i2u31_40
+  1746  0001AA                     i2u31_41:
+  1747  0001AA  FFFF               	dw	65535	; assembler added errata NOP
+  1748  0001AC  EFE8  F000         	goto	i2l1041
+  1749  0001B0                     i2u31_40:
+  1750  0001B0  FFFF               	dw	65535	; assembler added errata NOP
+  1751  0001B2  0E03               	movlw	3
+  1752  0001B4  1811               	xorwf	_current_speed^0,w,c
+  1753  0001B6  A4D8               	btfss	status,2,c
+  1754  0001B8  EFE0  F000         	goto	i2u32_41
+  1755  0001BC  EFE3  F000         	goto	i2u32_40
+  1756  0001C0                     i2u32_41:
+  1757  0001C0  FFFF               	dw	65535	; assembler added errata NOP
+  1758  0001C2  EFE8  F000         	goto	i2l1041
+  1759  0001C6                     i2u32_40:
+  1760  0001C6  FFFF               	dw	65535	; assembler added errata NOP
+  1761  0001C8                     
+  1762                           ;CAN_MAIN.C: 199:        speed_cmd_status = 0x07;
+  1763  0001C8  0E07               	movlw	7
+  1764  0001CA  6E10               	movwf	_speed_cmd_status^0,c
+  1765  0001CC  EF52  F001         	goto	i2l137
+  1766  0001D0                     i2l1041:
+  1767  0001D0  FFFF               	dw	65535	; assembler added errata NOP
+  1768  0001D2  0E03               	movlw	3
+  1769  0001D4  180F               	xorwf	_range_stat^0,w,c
+  1770  0001D6  A4D8               	btfss	status,2,c
+  1771  0001D8  EFF0  F000         	goto	i2u33_41
+  1772  0001DC  EFF3  F000         	goto	i2u33_40
+  1773  0001E0                     i2u33_41:
+  1774  0001E0  FFFF               	dw	65535	; assembler added errata NOP
+  1775  0001E2  EF02  F001         	goto	i2l1047
+  1776  0001E6                     i2u33_40:
+  1777  0001E6  FFFF               	dw	65535	; assembler added errata NOP
+  1778  0001E8  5011               	movf	_current_speed^0,w,c
+  1779  0001EA  A4D8               	btfss	status,2,c
+  1780  0001EC  EFFA  F000         	goto	i2u34_41
+  1781  0001F0  EFFD  F000         	goto	i2u34_40
+  1782  0001F4                     i2u34_41:
+  1783  0001F4  FFFF               	dw	65535	; assembler added errata NOP
+  1784  0001F6  EF02  F001         	goto	i2l1047
+  1785  0001FA                     i2u34_40:
+  1786  0001FA  FFFF               	dw	65535	; assembler added errata NOP
+  1787  0001FC                     
+  1788                           ;CAN_MAIN.C: 201:        speed_cmd_status = 0x08;
+  1789  0001FC  0E08               	movlw	8
+  1790  0001FE  6E10               	movwf	_speed_cmd_status^0,c
+  1791  000200  EF52  F001         	goto	i2l137
+  1792  000204                     i2l1047:
+  1793  000204  FFFF               	dw	65535	; assembler added errata NOP
+  1794  000206  0E03               	movlw	3
+  1795  000208  180F               	xorwf	_range_stat^0,w,c
+  1796  00020A  A4D8               	btfss	status,2,c
+  1797  00020C  EF0A  F001         	goto	i2u35_41
+  1798  000210  EF0D  F001         	goto	i2u35_40
+  1799  000214                     i2u35_41:
+  1800  000214  FFFF               	dw	65535	; assembler added errata NOP
+  1801  000216  EF1C  F001         	goto	i2l1053
+  1802  00021A                     i2u35_40:
+  1803  00021A  FFFF               	dw	65535	; assembler added errata NOP
+  1804  00021C  0411               	decf	_current_speed^0,w,c
+  1805  00021E  A4D8               	btfss	status,2,c
+  1806  000220  EF14  F001         	goto	i2u36_41
+  1807  000224  EF17  F001         	goto	i2u36_40
+  1808  000228                     i2u36_41:
+  1809  000228  FFFF               	dw	65535	; assembler added errata NOP
+  1810  00022A  EF1C  F001         	goto	i2l1053
+  1811  00022E                     i2u36_40:
+  1812  00022E  FFFF               	dw	65535	; assembler added errata NOP
+  1813  000230                     
+  1814                           ;CAN_MAIN.C: 203:        speed_cmd_status = 0x09;
+  1815  000230  0E09               	movlw	9
+  1816  000232  6E10               	movwf	_speed_cmd_status^0,c
+  1817  000234  EF52  F001         	goto	i2l137
+  1818  000238                     i2l1053:
+  1819  000238  FFFF               	dw	65535	; assembler added errata NOP
+  1820  00023A  0E03               	movlw	3
+  1821  00023C  180F               	xorwf	_range_stat^0,w,c
+  1822  00023E  A4D8               	btfss	status,2,c
+  1823  000240  EF24  F001         	goto	i2u37_41
+  1824  000244  EF27  F001         	goto	i2u37_40
+  1825  000248                     i2u37_41:
+  1826  000248  FFFF               	dw	65535	; assembler added errata NOP
+  1827  00024A  EF37  F001         	goto	i2l1059
+  1828  00024E                     i2u37_40:
+  1829  00024E  FFFF               	dw	65535	; assembler added errata NOP
+  1830  000250  0E02               	movlw	2
+  1831  000252  1811               	xorwf	_current_speed^0,w,c
+  1832  000254  A4D8               	btfss	status,2,c
+  1833  000256  EF2F  F001         	goto	i2u38_41
+  1834  00025A  EF32  F001         	goto	i2u38_40
+  1835  00025E                     i2u38_41:
+  1836  00025E  FFFF               	dw	65535	; assembler added errata NOP
+  1837  000260  EF37  F001         	goto	i2l1059
+  1838  000264                     i2u38_40:
+  1839  000264  FFFF               	dw	65535	; assembler added errata NOP
+  1840  000266                     
+  1841                           ;CAN_MAIN.C: 205:        speed_cmd_status = 0x0a;
+  1842  000266  0E0A               	movlw	10
+  1843  000268  6E10               	movwf	_speed_cmd_status^0,c
+  1844  00026A  EF52  F001         	goto	i2l137
+  1845  00026E                     i2l1059:
+  1846  00026E  FFFF               	dw	65535	; assembler added errata NOP
+  1847  000270  0E03               	movlw	3
+  1848  000272  180F               	xorwf	_range_stat^0,w,c
+  1849  000274  A4D8               	btfss	status,2,c
+  1850  000276  EF3F  F001         	goto	i2u39_41
+  1851  00027A  EF42  F001         	goto	i2u39_40
+  1852  00027E                     i2u39_41:
+  1853  00027E  FFFF               	dw	65535	; assembler added errata NOP
+  1854  000280  EF52  F001         	goto	i2l131
+  1855  000284                     i2u39_40:
+  1856  000284  FFFF               	dw	65535	; assembler added errata NOP
+  1857  000286  0E03               	movlw	3
+  1858  000288  1811               	xorwf	_current_speed^0,w,c
+  1859  00028A  A4D8               	btfss	status,2,c
+  1860  00028C  EF4A  F001         	goto	i2u40_41
+  1861  000290  EF4D  F001         	goto	i2u40_40
+  1862  000294                     i2u40_41:
+  1863  000294  FFFF               	dw	65535	; assembler added errata NOP
+  1864  000296  EF52  F001         	goto	i2l131
+  1865  00029A                     i2u40_40:
+  1866  00029A  FFFF               	dw	65535	; assembler added errata NOP
+  1867  00029C                     
+  1868                           ;CAN_MAIN.C: 207:        speed_cmd_status = 0x0b;
+  1869  00029C  0E0B               	movlw	11
+  1870  00029E  6E10               	movwf	_speed_cmd_status^0,c
+  1871  0002A0  EF52  F001         	goto	i2l137
+  1872  0002A4                     i2l131:
+  1873  0002A4                     i2l137:
+  1874  0002A4  FFFF               	dw	65535	; assembler added errata NOP
+  1875  0002A6  0012               	return		;funcret
+  1876  0002A8  FFFF               	dw	65535	; errata NOP
+  1877  0002AA                     __end_of_find_speed_cmd:
+  1878                           	callstack 0
+  1879                           
+  1880 ;; *************** function _find_fault_data *****************
+  1881 ;; Defined at:
+  1882 ;;		line 142 in file "CAN_MAIN.C"
+  1883 ;; Parameters:    Size  Location     Type
+  1884 ;;		None
+  1885 ;; Auto vars:     Size  Location     Type
+  1886 ;;		None
+  1887 ;; Return value:  Size  Location     Type
+  1888 ;;                  1    wreg      void 
+  1889 ;; Registers used:
+  1890 ;;		wreg, status,2, status,0
+  1891 ;; Tracked objects:
+  1892 ;;		On entry : 0/0
+  1893 ;;		On exit  : 0/0
+  1894 ;;		Unchanged: 0/0
+  1895 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1896 ;;      Params:         0       0       0       0       0       0       0
+  1897 ;;      Locals:         0       0       0       0       0       0       0
+  1898 ;;      Temps:          0       0       0       0       0       0       0
+  1899 ;;      Totals:         0       0       0       0       0       0       0
+  1900 ;;Total ram usage:        0 bytes
+  1901 ;; Hardware stack levels used: 1
+  1902 ;; This function calls:
+  1903 ;;		Nothing
+  1904 ;; This function is called by:
+  1905 ;;		_nrcs_data_extract
+  1906 ;; This function uses a non-reentrant model
+  1907 ;;
+  1908                           
+  1909                           	psect	text18
+  1910  000686                     __ptext18:
+  1911                           	callstack 0
+  1912  000686                     _find_fault_data:
+  1913                           	callstack 0
+  1914  000686  FFFF               	dw	65535	; assembler added errata NOP
+  1915  000688                     
+  1916                           ;CAN_MAIN.C: 144:     if (nrcs_data == 0x00 || nrcs_data == 0x0f)
+  1917  000688  5013               	movf	_nrcs_data^0,w,c
+  1918  00068A  B4D8               	btfsc	status,2,c
+  1919  00068C  EF4A  F003         	goto	i2u1_41
+  1920  000690  EF4D  F003         	goto	i2u1_40
+  1921  000694                     i2u1_41:
+  1922  000694  FFFF               	dw	65535	; assembler added errata NOP
+  1923  000696  EF58  F003         	goto	i2l955
+  1924  00069A                     i2u1_40:
+  1925  00069A  FFFF               	dw	65535	; assembler added errata NOP
+  1926  00069C  0E0F               	movlw	15
+  1927  00069E  1813               	xorwf	_nrcs_data^0,w,c
+  1928  0006A0  A4D8               	btfss	status,2,c
+  1929  0006A2  EF55  F003         	goto	i2u2_41
+  1930  0006A6  EF58  F003         	goto	i2u2_40
+  1931  0006AA                     i2u2_41:
+  1932  0006AA  FFFF               	dw	65535	; assembler added errata NOP
+  1933  0006AC  EF5D  F003         	goto	i2l957
+  1934  0006B0                     i2u2_40:
+  1935  0006B0                     i2l955:
+  1936  0006B0  FFFF               	dw	65535	; assembler added errata NOP
+  1937                           
+  1938                           ;CAN_MAIN.C: 145:     {;CAN_MAIN.C: 146:         fault_counter =1;
+  1939  0006B2  0E01               	movlw	1
+  1940  0006B4  6E12               	movwf	_fault_counter^0,c
+  1941                           
+  1942                           ;CAN_MAIN.C: 147:     }
+  1943  0006B6  EF60  F003         	goto	i2l97
+  1944  0006BA                     i2l957:
+  1945  0006BA  FFFF               	dw	65535	; assembler added errata NOP
+  1946                           
+  1947                           ;CAN_MAIN.C: 149:         fault_counter =0;
+  1948  0006BC  0E00               	movlw	0
+  1949  0006BE  6E12               	movwf	_fault_counter^0,c
+  1950  0006C0                     i2l97:
+  1951  0006C0  FFFF               	dw	65535	; assembler added errata NOP
+  1952  0006C2  0012               	return		;funcret
+  1953  0006C4  FFFF               	dw	65535	; errata NOP
+  1954  0006C6                     __end_of_find_fault_data:
+  1955                           	callstack 0
+  1956                           
+  1957 ;; *************** function _find_distance_from_nrcs *****************
+  1958 ;; Defined at:
+  1959 ;;		line 152 in file "CAN_MAIN.C"
+  1960 ;; Parameters:    Size  Location     Type
+  1961 ;;		None
+  1962 ;; Auto vars:     Size  Location     Type
+  1963 ;;		None
+  1964 ;; Return value:  Size  Location     Type
+  1965 ;;                  1    wreg      void 
+  1966 ;; Registers used:
+  1967 ;;		wreg, status,2, status,0
+  1968 ;; Tracked objects:
+  1969 ;;		On entry : 0/0
+  1970 ;;		On exit  : 0/0
+  1971 ;;		Unchanged: 0/0
+  1972 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1973 ;;      Params:         0       0       0       0       0       0       0
+  1974 ;;      Locals:         0       0       0       0       0       0       0
+  1975 ;;      Temps:          0       0       0       0       0       0       0
+  1976 ;;      Totals:         0       0       0       0       0       0       0
+  1977 ;;Total ram usage:        0 bytes
+  1978 ;; Hardware stack levels used: 1
+  1979 ;; This function calls:
+  1980 ;;		Nothing
+  1981 ;; This function is called by:
+  1982 ;;		_nrcs_data_extract
+  1983 ;; This function uses a non-reentrant model
+  1984 ;;
+  1985                           
+  1986                           	psect	text19
+  1987  0002AA                     __ptext19:
+  1988                           	callstack 0
+  1989  0002AA                     _find_distance_from_nrcs:
+  1990                           	callstack 0
+  1991  0002AA  FFFF               	dw	65535	; assembler added errata NOP
+  1992  0002AC                     
+  1993                           ;CAN_MAIN.C: 161:    {;CAN_MAIN.C: 162:        if(nrcs_data == 0x01 || nrcs_data == 0x02
+      +                           || nrcs_data == 0x03 || nrcs_data == 0x04)
+  1994  0002AC  0413               	decf	_nrcs_data^0,w,c
+  1995  0002AE  B4D8               	btfsc	status,2,c
+  1996  0002B0  EF5C  F001         	goto	i2u3_41
+  1997  0002B4  EF5F  F001         	goto	i2u3_40
+  1998  0002B8                     i2u3_41:
+  1999  0002B8  FFFF               	dw	65535	; assembler added errata NOP
+  2000  0002BA  EF80  F001         	goto	i2l967
+  2001  0002BE                     i2u3_40:
+  2002  0002BE  FFFF               	dw	65535	; assembler added errata NOP
+  2003  0002C0  0E02               	movlw	2
+  2004  0002C2  1813               	xorwf	_nrcs_data^0,w,c
+  2005  0002C4  B4D8               	btfsc	status,2,c
+  2006  0002C6  EF67  F001         	goto	i2u4_41
+  2007  0002CA  EF6A  F001         	goto	i2u4_40
+  2008  0002CE                     i2u4_41:
+  2009  0002CE  FFFF               	dw	65535	; assembler added errata NOP
+  2010  0002D0  EF80  F001         	goto	i2l967
+  2011  0002D4                     i2u4_40:
+  2012  0002D4  FFFF               	dw	65535	; assembler added errata NOP
+  2013  0002D6  0E03               	movlw	3
+  2014  0002D8  1813               	xorwf	_nrcs_data^0,w,c
+  2015  0002DA  B4D8               	btfsc	status,2,c
+  2016  0002DC  EF72  F001         	goto	i2u5_41
+  2017  0002E0  EF75  F001         	goto	i2u5_40
+  2018  0002E4                     i2u5_41:
+  2019  0002E4  FFFF               	dw	65535	; assembler added errata NOP
+  2020  0002E6  EF80  F001         	goto	i2l967
+  2021  0002EA                     i2u5_40:
+  2022  0002EA  FFFF               	dw	65535	; assembler added errata NOP
+  2023  0002EC  0E04               	movlw	4
+  2024  0002EE  1813               	xorwf	_nrcs_data^0,w,c
+  2025  0002F0  A4D8               	btfss	status,2,c
+  2026  0002F2  EF7D  F001         	goto	i2u6_41
+  2027  0002F6  EF80  F001         	goto	i2u6_40
+  2028  0002FA                     i2u6_41:
+  2029  0002FA  FFFF               	dw	65535	; assembler added errata NOP
+  2030  0002FC  EF85  F001         	goto	i2l969
+  2031  000300                     i2u6_40:
+  2032  000300                     i2l967:
+  2033  000300  FFFF               	dw	65535	; assembler added errata NOP
+  2034                           
+  2035                           ;CAN_MAIN.C: 163:            range_stat = 1;
+  2036  000302  0E01               	movlw	1
+  2037  000304  6E0F               	movwf	_range_stat^0,c
+  2038  000306  EFFB  F001         	goto	i2l111
+  2039  00030A                     i2l969:
+  2040  00030A  FFFF               	dw	65535	; assembler added errata NOP
+  2041  00030C  0E05               	movlw	5
+  2042  00030E  1813               	xorwf	_nrcs_data^0,w,c
+  2043  000310  B4D8               	btfsc	status,2,c
+  2044  000312  EF8D  F001         	goto	i2u7_41
+  2045  000316  EF90  F001         	goto	i2u7_40
+  2046  00031A                     i2u7_41:
+  2047  00031A  FFFF               	dw	65535	; assembler added errata NOP
+  2048  00031C  EFB1  F001         	goto	i2l977
+  2049  000320                     i2u7_40:
+  2050  000320  FFFF               	dw	65535	; assembler added errata NOP
+  2051  000322  0E06               	movlw	6
+  2052  000324  1813               	xorwf	_nrcs_data^0,w,c
+  2053  000326  B4D8               	btfsc	status,2,c
+  2054  000328  EF98  F001         	goto	i2u8_41
+  2055  00032C  EF9B  F001         	goto	i2u8_40
+  2056  000330                     i2u8_41:
+  2057  000330  FFFF               	dw	65535	; assembler added errata NOP
+  2058  000332  EFB1  F001         	goto	i2l977
+  2059  000336                     i2u8_40:
+  2060  000336  FFFF               	dw	65535	; assembler added errata NOP
+  2061  000338  0E07               	movlw	7
+  2062  00033A  1813               	xorwf	_nrcs_data^0,w,c
+  2063  00033C  B4D8               	btfsc	status,2,c
+  2064  00033E  EFA3  F001         	goto	i2u9_41
+  2065  000342  EFA6  F001         	goto	i2u9_40
+  2066  000346                     i2u9_41:
+  2067  000346  FFFF               	dw	65535	; assembler added errata NOP
+  2068  000348  EFB1  F001         	goto	i2l977
+  2069  00034C                     i2u9_40:
+  2070  00034C  FFFF               	dw	65535	; assembler added errata NOP
+  2071  00034E  0E08               	movlw	8
+  2072  000350  1813               	xorwf	_nrcs_data^0,w,c
+  2073  000352  A4D8               	btfss	status,2,c
+  2074  000354  EFAE  F001         	goto	i2u10_41
+  2075  000358  EFB1  F001         	goto	i2u10_40
+  2076  00035C                     i2u10_41:
+  2077  00035C  FFFF               	dw	65535	; assembler added errata NOP
+  2078  00035E  EFB6  F001         	goto	i2l979
+  2079  000362                     i2u10_40:
+  2080  000362                     i2l977:
+  2081  000362  FFFF               	dw	65535	; assembler added errata NOP
+  2082                           
+  2083                           ;CAN_MAIN.C: 165:            range_stat = 2;
+  2084  000364  0E02               	movlw	2
+  2085  000366  6E0F               	movwf	_range_stat^0,c
+  2086  000368  EFFB  F001         	goto	i2l111
+  2087  00036C                     i2l979:
+  2088  00036C  FFFF               	dw	65535	; assembler added errata NOP
+  2089  00036E  0E09               	movlw	9
+  2090  000370  1813               	xorwf	_nrcs_data^0,w,c
+  2091  000372  B4D8               	btfsc	status,2,c
+  2092  000374  EFBE  F001         	goto	i2u11_41
+  2093  000378  EFC1  F001         	goto	i2u11_40
+  2094  00037C                     i2u11_41:
+  2095  00037C  FFFF               	dw	65535	; assembler added errata NOP
+  2096  00037E  EFF8  F001         	goto	i2l991
+  2097  000382                     i2u11_40:
+  2098  000382  FFFF               	dw	65535	; assembler added errata NOP
+  2099  000384  0E0A               	movlw	10
+  2100  000386  1813               	xorwf	_nrcs_data^0,w,c
+  2101  000388  B4D8               	btfsc	status,2,c
+  2102  00038A  EFC9  F001         	goto	i2u12_41
+  2103  00038E  EFCC  F001         	goto	i2u12_40
+  2104  000392                     i2u12_41:
+  2105  000392  FFFF               	dw	65535	; assembler added errata NOP
+  2106  000394  EFF8  F001         	goto	i2l991
+  2107  000398                     i2u12_40:
+  2108  000398  FFFF               	dw	65535	; assembler added errata NOP
+  2109  00039A  0E0B               	movlw	11
+  2110  00039C  1813               	xorwf	_nrcs_data^0,w,c
+  2111  00039E  B4D8               	btfsc	status,2,c
+  2112  0003A0  EFD4  F001         	goto	i2u13_41
+  2113  0003A4  EFD7  F001         	goto	i2u13_40
+  2114  0003A8                     i2u13_41:
+  2115  0003A8  FFFF               	dw	65535	; assembler added errata NOP
+  2116  0003AA  EFF8  F001         	goto	i2l991
+  2117  0003AE                     i2u13_40:
+  2118  0003AE  FFFF               	dw	65535	; assembler added errata NOP
+  2119  0003B0  0E0C               	movlw	12
+  2120  0003B2  1813               	xorwf	_nrcs_data^0,w,c
+  2121  0003B4  B4D8               	btfsc	status,2,c
+  2122  0003B6  EFDF  F001         	goto	i2u14_41
+  2123  0003BA  EFE2  F001         	goto	i2u14_40
+  2124  0003BE                     i2u14_41:
+  2125  0003BE  FFFF               	dw	65535	; assembler added errata NOP
+  2126  0003C0  EFF8  F001         	goto	i2l991
+  2127  0003C4                     i2u14_40:
+  2128  0003C4  FFFF               	dw	65535	; assembler added errata NOP
+  2129  0003C6  0E0D               	movlw	13
+  2130  0003C8  1813               	xorwf	_nrcs_data^0,w,c
+  2131  0003CA  B4D8               	btfsc	status,2,c
+  2132  0003CC  EFEA  F001         	goto	i2u15_41
+  2133  0003D0  EFED  F001         	goto	i2u15_40
+  2134  0003D4                     i2u15_41:
+  2135  0003D4  FFFF               	dw	65535	; assembler added errata NOP
+  2136  0003D6  EFF8  F001         	goto	i2l991
+  2137  0003DA                     i2u15_40:
+  2138  0003DA  FFFF               	dw	65535	; assembler added errata NOP
+  2139  0003DC  0E0E               	movlw	14
+  2140  0003DE  1813               	xorwf	_nrcs_data^0,w,c
+  2141  0003E0  A4D8               	btfss	status,2,c
+  2142  0003E2  EFF5  F001         	goto	i2u16_41
+  2143  0003E6  EFF8  F001         	goto	i2u16_40
+  2144  0003EA                     i2u16_41:
+  2145  0003EA  FFFF               	dw	65535	; assembler added errata NOP
+  2146  0003EC  EFFB  F001         	goto	i2l111
+  2147  0003F0                     i2u16_40:
+  2148  0003F0                     i2l991:
+  2149  0003F0  FFFF               	dw	65535	; assembler added errata NOP
+  2150                           
+  2151                           ;CAN_MAIN.C: 167:            range_stat = 3;
+  2152  0003F2  0E03               	movlw	3
+  2153  0003F4  6E0F               	movwf	_range_stat^0,c
+  2154  0003F6                     i2l111:
+  2155  0003F6  FFFF               	dw	65535	; assembler added errata NOP
+  2156  0003F8  0012               	return		;funcret
+  2157  0003FA  FFFF               	dw	65535	; errata NOP
+  2158  0003FC                     __end_of_find_distance_from_nrcs:
+  2159                           	callstack 0
+  2160  0003FC  FFFF               	dw	65535	; assembler added errata NOP
+  2161                           
+  2162                           	psect	rparam
+  2163  0000                     
+  2164                           	psect	temp
+  2165  00001F                     btemp:
+  2166                           	callstack 0
+  2167  00001F                     	ds	1
+  2168  0000                     int$flags	set	btemp
+  2169  0000                     wtemp8	set	btemp+1
+  2170  0000                     ttemp5	set	btemp+1
+  2171  0000                     ttemp6	set	btemp+4
+  2172  0000                     ttemp7	set	btemp+8
+  2173                           
+  2174                           	psect	idloc
+  2175                           
+  2176                           ;Config register IDLOC0 @ 0x200000
+  2177                           ;	unspecified, using default values
+  2178  200000                     	org	2097152
+  2179  200000  FF                 	db	255
+  2180                           
+  2181                           ;Config register IDLOC1 @ 0x200001
+  2182                           ;	unspecified, using default values
+  2183  200001                     	org	2097153
+  2184  200001  FF                 	db	255
+  2185                           
+  2186                           ;Config register IDLOC2 @ 0x200002
+  2187                           ;	unspecified, using default values
+  2188  200002                     	org	2097154
+  2189  200002  FF                 	db	255
+  2190                           
+  2191                           ;Config register IDLOC3 @ 0x200003
+  2192                           ;	unspecified, using default values
+  2193  200003                     	org	2097155
+  2194  200003  FF                 	db	255
+  2195                           
+  2196                           ;Config register IDLOC4 @ 0x200004
+  2197                           ;	unspecified, using default values
+  2198  200004                     	org	2097156
+  2199  200004  FF                 	db	255
+  2200                           
+  2201                           ;Config register IDLOC5 @ 0x200005
+  2202                           ;	unspecified, using default values
+  2203  200005                     	org	2097157
+  2204  200005  FF                 	db	255
+  2205                           
+  2206                           ;Config register IDLOC6 @ 0x200006
+  2207                           ;	unspecified, using default values
+  2208  200006                     	org	2097158
+  2209  200006  FF                 	db	255
+  2210                           
+  2211                           ;Config register IDLOC7 @ 0x200007
+  2212                           ;	unspecified, using default values
+  2213  200007                     	org	2097159
+  2214  200007  FF                 	db	255
+  2215                           
+  2216                           	psect	config
+  2217                           
+  2218                           ; Padding undefined space
+  2219  300000                     	org	3145728
+  2220  300000  FF                 	db	255
+  2221                           
+  2222                           ;Config register CONFIG1H @ 0x300001
+  2223                           ;	Oscillator Selection bits
+  2224                           ;	OSC = HS, HS oscillator
+  2225                           ;	Oscillator System Clock Switch Enable bit
+  2226                           ;	OSCS = OFF, Oscillator system clock switch option is disabled (main oscillator is sour
+      +                          ce)
+  2227  300001                     	org	3145729
+  2228  300001  22                 	db	34
+  2229                           
+  2230                           ;Config register CONFIG2L @ 0x300002
+  2231                           ;	Power-up Timer Enable bit
+  2232                           ;	PWRT = OFF, PWRT disabled
+  2233                           ;	Brown-out Reset Enable bit
+  2234                           ;	BOR = OFF, Brown-out Reset disabled
+  2235                           ;	Brown-out Reset Voltage bits
+  2236                           ;	BORV = 25, VBOR set to 2.5V
+  2237  300002                     	org	3145730
+  2238  300002  0D                 	db	13
+  2239                           
+  2240                           ;Config register CONFIG2H @ 0x300003
+  2241                           ;	Watchdog Timer Enable bit
+  2242                           ;	WDT = OFF, WDT disabled (control is placed on the SWDTEN bit)
+  2243                           ;	Watchdog Timer Postscale Select bits
+  2244                           ;	WDTPS = 128, 1:128
+  2245  300003                     	org	3145731
+  2246  300003  0E                 	db	14
+  2247                           
+  2248                           ;Config register CONFIG4L @ 0x300006
+  2249                           ;	Stack Full/Underflow Reset Enable bit
+  2250                           ;	STVR = OFF, Stack Full/Underflow will not cause Reset
+  2251                           ;	Low-Voltage ICSP Enable bit
+  2252                           ;	LVP = OFF, Low-Voltage ICSP disabled
+  2253                           ;	Background Debugger Enable bit
+  2254                           ;	DEBUG = 0x1, unprogrammed default
+  2255  300006                     	org	3145734
+  2256  300006  80                 	db	128
+  2257                           
+  2258                           ; Padding undefined space
+  2259  300007                     	org	3145735
+  2260  300007  FF                 	db	255
+  2261                           
+  2262                           ;Config register CONFIG5L @ 0x300008
+  2263                           ;	Code Protection bit
+  2264                           ;	CP0 = OFF, Block 0 (000200-001FFFh) not code protected
+  2265                           ;	Code Protection bit
+  2266                           ;	CP1 = OFF, Block 1 (002000-003FFFh) not code protected
+  2267                           ;	Code Protection bit
+  2268                           ;	CP2 = OFF, Block 2 (004000-005FFFh) not code protected
+  2269                           ;	Code Protection bit
+  2270                           ;	CP3 = OFF, Block 3 (006000-007FFFh) not code protected
+  2271  300008                     	org	3145736
+  2272  300008  0F                 	db	15
+  2273                           
+  2274                           ;Config register CONFIG5H @ 0x300009
+  2275                           ;	Boot Block Code Protection bit
+  2276                           ;	CPB = OFF, Boot Block (000000-0001FFh) not code protected
+  2277                           ;	Data EEPROM Code Protection bit
+  2278                           ;	CPD = OFF, Data EEPROM not code protected
+  2279  300009                     	org	3145737
+  2280  300009  C0                 	db	192
+  2281                           
+  2282                           ;Config register CONFIG6L @ 0x30000A
+  2283                           ;	Write Protection bit
+  2284                           ;	WRT0 = OFF, Block 0 (000200-001FFFh) not write protected
+  2285                           ;	Write Protection bit
+  2286                           ;	WRT1 = OFF, Block 1 (002000-003FFFh) not write protected
+  2287                           ;	Write Protection bit
+  2288                           ;	WRT2 = OFF, Block 2 (004000-005FFFh) not write protected
+  2289                           ;	Write Protection bit
+  2290                           ;	WRT3 = OFF, Block 3 (006000-007FFFh) not write protected
+  2291  30000A                     	org	3145738
+  2292  30000A  0F                 	db	15
+  2293                           
+  2294                           ;Config register CONFIG6H @ 0x30000B
+  2295                           ;	Configuration Register Write Protection bit
+  2296                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write protected
+  2297                           ;	Boot Block Write Protection bit
+  2298                           ;	WRTB = OFF, Boot Block (000000-0001FFh) not write protected
+  2299                           ;	Data EEPROM Write Protection bit
+  2300                           ;	WRTD = OFF, Data EEPROM not write protected
+  2301  30000B                     	org	3145739
+  2302  30000B  E0                 	db	224
+  2303                           
+  2304                           ;Config register CONFIG7L @ 0x30000C
+  2305                           ;	Table Read Protection bit
+  2306                           ;	EBTR0 = OFF, Block 0 (000200-001FFFh) not protected from Table Reads executed in other
+      +                           blocks
+  2307                           ;	Table Read Protection bit
+  2308                           ;	EBTR1 = OFF, Block 1 (002000-003FFFh) not protected from Table Reads executed in other
+      +                           blocks
+  2309                           ;	Table Read Protection bit
+  2310                           ;	EBTR2 = OFF, Block 2 (004000-005FFFh) not protected from Table Reads executed in other
+      +                           blocks
+  2311                           ;	Table Read Protection bit
+  2312                           ;	EBTR3 = OFF, Block 3 (006000-007FFFh) not protected from Table Reads executed in other
+      +                           blocks
+  2313  30000C                     	org	3145740
+  2314  30000C  0F                 	db	15
+  2315                           
+  2316                           ;Config register CONFIG7H @ 0x30000D
+  2317                           ;	Boot Block Table Read Protection bit
+  2318                           ;	EBTRB = OFF, Boot Block (000000-0001FFh) not protected from Table Reads executed in ot
+      +                          her blocks
+  2319  30000D                     	org	3145741
+  2320  30000D  40                 	db	64
+  2321                           tosu	equ	0xFFF
+  2322                           tosh	equ	0xFFE
+  2323                           tosl	equ	0xFFD
+  2324                           stkptr	equ	0xFFC
+  2325                           pclatu	equ	0xFFB
+  2326                           pclath	equ	0xFFA
+  2327                           pcl	equ	0xFF9
+  2328                           tblptru	equ	0xFF8
+  2329                           tblptrh	equ	0xFF7
+  2330                           tblptrl	equ	0xFF6
+  2331                           tablat	equ	0xFF5
+  2332                           prodh	equ	0xFF4
+  2333                           prodl	equ	0xFF3
+  2334                           indf0	equ	0xFEF
+  2335                           postinc0	equ	0xFEE
+  2336                           postdec0	equ	0xFED
+  2337                           preinc0	equ	0xFEC
+  2338                           plusw0	equ	0xFEB
+  2339                           fsr0h	equ	0xFEA
+  2340                           fsr0l	equ	0xFE9
+  2341                           wreg	equ	0xFE8
+  2342                           indf1	equ	0xFE7
+  2343                           postinc1	equ	0xFE6
+  2344                           postdec1	equ	0xFE5
+  2345                           preinc1	equ	0xFE4
+  2346                           plusw1	equ	0xFE3
+  2347                           fsr1h	equ	0xFE2
+  2348                           fsr1l	equ	0xFE1
+  2349                           bsr	equ	0xFE0
+  2350                           indf2	equ	0xFDF
+  2351                           postinc2	equ	0xFDE
+  2352                           postdec2	equ	0xFDD
+  2353                           preinc2	equ	0xFDC
+  2354                           plusw2	equ	0xFDB
+  2355                           fsr2h	equ	0xFDA
+  2356                           fsr2l	equ	0xFD9
+  2357                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         23
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94      7      30
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_can_write
+    _set_baudrate->_get_mode
+    _set_baudrate->_set_mode
+    _can_write->_set_mode
+
+Critical Paths under _ISR1 in COMRAM
+
+    _can_read->i2_set_mode
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _ISR1 in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _ISR1 in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _ISR1 in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _ISR1 in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _ISR1 in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _ISR1 in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0     263
+                           _can_init
+                          _can_write
+                      _cc_led_change
+               _change_err_stat_nLED
+                       _init_inp_out
+                       _set_baudrate
+              _set_byte_transmission
+                         _set_filter
+                           _set_mask
+                           _sys_init
+ ---------------------------------------------------------------------------------
+ (1) _sys_init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _set_mask                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _set_filter                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _set_byte_transmission                                0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _set_baudrate                                         0     0      0      30
+                           _get_mode
+                           _set_mode
+ ---------------------------------------------------------------------------------
+ (2) _get_mode                                             1     1      0      15
+                                              1 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _init_inp_out                                         0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _change_err_stat_nLED                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _cc_led_change                                        2     2      0       0
+                                              1 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _can_write                                            5     3      2     233
+                                              2 COMRAM     5     3      2
+                           _set_mode
+ ---------------------------------------------------------------------------------
+ (2) _set_mode                                             1     1      0      15
+                                              1 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _can_init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (3) _ISR1                                                 0     0      0      22
+                           _can_read
+ ---------------------------------------------------------------------------------
+ (4) _can_read                                             0     0      0      22
+                  _nrcs_data_extract
+                         i2_set_mode
+ ---------------------------------------------------------------------------------
+ (5) i2_set_mode                                           1     1      0      22
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (5) _nrcs_data_extract                                    0     0      0       0
+            _find_distance_from_nrcs
+                    _find_fault_data
+                     _find_speed_cmd
+ ---------------------------------------------------------------------------------
+ (6) _find_speed_cmd                                       0     0      0       0
+ ---------------------------------------------------------------------------------
+ (6) _find_fault_data                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (6) _find_distance_from_nrcs                              0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 6
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _can_init
+   _can_write
+     _set_mode
+   _cc_led_change
+   _change_err_stat_nLED
+   _init_inp_out
+   _set_baudrate
+     _get_mode
+     _set_mode
+   _set_byte_transmission
+   _set_filter
+   _set_mask
+   _sys_init
+
+ _ISR1 (ROOT)
+   _can_read
+     _nrcs_data_extract
+       _find_distance_from_nrcs
+       _find_fault_data
+       _find_speed_cmd
+     i2_set_mode
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             5FF      0       0      28        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E      7      1E       1       31.9%
+BITBIGSFRhhlhh      4B      0       0      17        0.0%
+BITBIGSFRllhll      26      0       0      24        0.0%
+BITBIGSFRllhlhh     12      0       0      22        0.0%
+BITBIGSFRlllh       12      0       0      25        0.0%
+BITBIGSFRhl         10      0       0      19        0.0%
+BITBIGSFRhhll        E      0       0      18        0.0%
+BITBIGSFRlh          D      0       0      20        0.0%
+BITBIGSFRhhh         D      0       0      16        0.0%
+BITBIGSFRllhlhl      2      0       0      23        0.0%
+BITBIGSFRllhhlh      2      0       0      21        0.0%
+BITBIGSFRllll        2      0       0      26        0.0%
+BIGSFR               0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      1E      27        0.0%
+DATA                 0      0      1E       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.36 build 20220127204148 
+Symbol Table                                                                                   Thu Sep 29 17:27:39 2022
+
+                                                                 l84 0682  
+                                                                 l79 04C4  
+                                                                 l87 078E  
+                                                                l140 077A  
+                                                                l241 07AE  
+                                                                l250 07BA  
+                                                                l244 07D0  
+                                                                l262 074E  
+                                                                l247 06EA  
+                                                                l256 0730  
+                                                                l275 05BC  
+                                                                l259 07A0  
+                                                                _GIE 007F97  
+                                                                u410 072E  
+                                                                u411 0728  
+                                                                u420 0410  
+                                                                u421 040A  
+                                                                u430 0422  
+                                                                u510 0644  
+                                                                u431 041C  
+                                                                u511 063E  
+                                                                u440 0438  
+                                                                u520 0658  
+                                                                u505 04C2  
+                                                                u441 0430  
+                                                                u521 0652  
+                                                                u506 04C4  
+                                                                u450 043C  
+                                                                u610 04FE  
+                                                                u611 04F8  
+                                                                u460 046C  
+                                                                u461 0466  
+                                                                u470 0480  
+                                                                u471 047A  
+                                                                u535 0666  
+                                                                u480 0496  
+                                                                u536 0668  
+                                                                u481 048E  
+                                                                u545 067A  
+                                                                u490 049A  
+                                                                u546 067C  
+                                                                u637 044A  
+                                                                u647 04A8  
+                                                                u657 0554  
+                                                                wreg 000FE8  
+                                                               l1101 06E0  
+                                                               l1111 0412  
+                                                               l1103 06E4  
+                                                               l1121 0482  
+                                                               l1113 0424  
+                                                               l1105 0794  
+                                                               l1123 049E  
+                                                               l1115 0440  
+                                                               l1131 065A  
+                                                               l1107 0736  
+                                                               l1125 04B8  
+                                                               l1117 045A  
+                                                               l1109 0400  
+                                                               l1133 065E  
+                                                               l1141 076A  
+                                                               l1301 04D6  
+                                                               l1119 046E  
+                                                               l1135 066C  
+                                                               l1127 0632  
+                                                               l1143 076E  
+                                                               l1311 04EC  
+                                                               l1303 04DA  
+                                                               l1241 056E  
+                                                               l1137 0672  
+                                                               l1129 0646  
+                                                               l1081 0718  
+                                                               l1145 0776  
+                                                               l1313 0500  
+                                                               l1305 04DE  
+                                                               l1251 0590  
+                                                               l1243 0574  
+                                                               l1139 067C  
+                                                               l1091 06C8  
+                                                               l1315 0508  
+                                                               l1307 04E2  
+                                                               l1077 07B6  
+                                                               l1261 05B0  
+                                                               l1253 0598  
+                                                               l1245 057A  
+                                                               l1237 054A  
+                                                               l1085 0780  
+                                                               l1093 06CE  
+                                                               l1317 052E  
+                                                               l1309 04E8  
+                                                               l1263 05B6  
+                                                               l1255 059E  
+                                                               l1247 0580  
+                                                               l1239 0564  
+                                                               l1079 0718  
+                                                               l1095 06D4  
+                                                               l1087 07A6  
+                                                               l1089 07CC  
+                                                               l1257 05A4  
+                                                               l1249 0588  
+                                                               l1097 06D8  
+                                                               l1259 05AA  
+                                                               l1099 06DC  
+                                                               l1299 04C8  
+                                                               _ISR1 0008  
+                                                               _PEIE 007F96  
+                                                               i2l90 0710  
+                                                               i2l97 06C0  
+                                                               _main 04C8  
+                                                               indf2 000FDF  
+                                                               btemp 001F  
+                                                               start 002C  
+                                                       get_mode@mode 0019  
+                                                         i2_set_mode 07BE  
+                                                       ___param_bank 000000  
+                                                              ?_ISR1 0018  
+                                                     i2set_mode@mode 0018  
+                                                              ?_main 0018  
+                                                              i2l111 03F6  
+                                                              i2l131 02A4  
+                                                              i2l137 02A4  
+                                                              i2l250 07C6  
+                                                              i2l272 062A  
+                                                              i2l268 0024  
+                                                              i2l951 0688  
+                                                              i2l961 02C0  
+                                                              i2l953 069C  
+                                                              i2l971 0322  
+                                                              i2l963 02D6  
+                                                              i2l955 06B0  
+                                                              i2l981 0384  
+                                                              i2l973 0338  
+                                                              i2l965 02EC  
+                                                              i2l957 06BA  
+                                                              i2l983 039A  
+                                                              i2l991 03F0  
+                                                              i2l975 034E  
+                                                              i2l967 0300  
+                                                              i2l959 02AC  
+                                                              i2l985 03B0  
+                                                              i2l977 0362  
+                                                              i2l969 030A  
+                                                              i2l993 0032  
+                                                              i2l987 03C6  
+                                                              i2l979 036C  
+                                                              i2l995 0046  
+                                                              i2l989 03DC  
+                                                              i2l997 005A  
+                                                              i2l999 0062  
+                                                              _byte1 000E  
+                                                              _byte2 000D  
+                                                              _byte3 000C  
+                                                              ttemp5 0020  
+                                                              ttemp6 0023  
+                                                              ttemp7 0027  
+                                                              status 000FD8  
+                                                              wtemp8 0020  
+                                           ?_find_distance_from_nrcs 0018  
+                                                       __end_of_ISR1 002C  
+                                                    __initialization 0752  
+                                                       __end_of_main 0546  
+                                                             ??_ISR1 0019  
+                                                             ??_main 001F  
+                                               _change_err_stat_nLED 0630  
+                                                      __activetblptr 000000  
+                                                             _CANCON 000F6F  
+                                                             _CIOCON 000F73  
+                                                             i2l1001 0078  
+                                                             i2l1011 00C8  
+                                                             i2l1003 008C  
+                                                             i2l1021 0128  
+                                                             i2l1013 00DE  
+                                                             i2l1005 0094  
+                                                             i2l1031 017C  
+                                                             i2l1023 0130  
+                                                             i2l1015 00F4  
+                                                             i2l1007 00AA  
+                                                             i2l1041 01D0  
+                                                             i2l1033 0192  
+                                                             i2l1025 0148  
+                                                             i2l1017 00FC  
+                                                             i2l1009 00C0  
+                                                             i2l1051 0230  
+                                                             i2l1043 01E8  
+                                                             i2l1035 019A  
+                                                             i2l1027 015C  
+                                                             i2l1019 0114  
+                                                             i2l1061 0286  
+                                                             i2l1053 0238  
+                                                             i2l1045 01FC  
+                                                             i2l1037 01B2  
+                                                             i2l1029 0164  
+                                                             i2l1063 029C  
+                                                             i2l1055 0250  
+                                                             i2l1047 0204  
+                                                             i2l1039 01C8  
+                                                             i2l1071 0704  
+                                                             i2l1057 0266  
+                                                             i2l1049 021C  
+                                                             i2l1073 0708  
+                                                             i2l1065 06F0  
+                                                             i2l1321 001E  
+                                                             i2l1059 026E  
+                                                             i2l1075 070C  
+                                                             i2l1067 06F4  
+                                                             i2l1235 07C2  
+                                                             i2l1323 0020  
+                                                             i2l1069 06FA  
+                                                             i2l1271 05D0  
+                                                             i2l1319 000C  
+                                                             i2l1281 05E4  
+                                                             i2l1273 05D4  
+                                                             i2l1265 05C2  
+                                                             i2l1291 05F8  
+                                                             i2l1283 05E8  
+                                                             i2l1275 05D8  
+                                                             i2l1267 05C8  
+                                                             i2l1293 05FA  
+                                                             i2l1285 05EC  
+                                                             i2l1277 05DC  
+                                                             i2l1269 05CC  
+                                                             i2l1295 0610  
+                                                             i2l1287 05F0  
+                                                             i2l1279 05E0  
+                                                             i2l1297 0626  
+                                                             i2l1289 05F4  
+                                                             _RXB0D0 000F66  
+                                                             _RXB0D1 000F67  
+                                                             _RXB0D2 000F68  
+                                                             _RXB0D3 000F69  
+                                                             _RXB0D4 000F6A  
+                                                             _RXB0D5 000F6B  
+                                                             _RXB0D6 000F6C  
+                                                             _RXB0D7 000F6D  
+                                                             _TXB0D0 000F46  
+                                                             _TXB0D1 000F47  
+                                                             _TXB0D2 000F48  
+                                                             _TXB0D3 000F49  
+                                                             _TXB0D4 000F4A  
+                                                             _TXB0D5 000F4B  
+                                                             _TXB0D6 000F4C  
+                                                             _TXB0D7 000F4D  
+                                                             i2u1_40 069A  
+                                                             i2u1_41 0694  
+                                                             i2u2_40 06B0  
+                                                             i2u2_41 06AA  
+                                                             i2u3_40 02BE  
+                                                             i2u3_41 02B8  
+                                                             i2u4_40 02D4  
+                                                             i2u4_41 02CE  
+                                                             i2u5_40 02EA  
+                                                   __end_of_can_init 07D4  
+                                                             i2u5_41 02E4  
+                                                   __end_of_can_read 0630  
+                                                             i2u6_40 0300  
+                                                             i2u6_41 02FA  
+                                                             i2u7_40 0320  
+                                                             i2u7_41 031A  
+                                                             i2u8_40 0336  
+                                                             i2u8_41 0330  
+                                                             i2u9_40 034C  
+                                                             i2u9_41 0346  
+                                                      ?_init_inp_out 0018  
+                                                   ??_find_speed_cmd 0018  
+                                                       _cc_nrcs_stat 0017  
+                                                        ?i2_set_mode 0018  
+                                                   __end_of_get_mode 0734  
+                                                             clear_0 0758  
+                                      __end_of_set_byte_transmission 077E  
+                                                             isa$std 000001  
+                                              ?_change_err_stat_nLED 0018  
+                                                   __end_of_set_mask 07A4  
+                                                   __end_of_set_mode 07BE  
+                                                   __end_of_sys_init 07B2  
+                                                     ??_init_inp_out 0019  
+                                                         __accesstop 0060  
+                                            __end_of__initialization 075E  
+                                                  ??_find_fault_data 0018  
+                                                      ___rparam_used 000001  
+                                                     __pcstackCOMRAM 0018  
+                                                      _cc_led_change 03FE  
+                                                      _current_speed 0011  
+                                             ??_change_err_stat_nLED 0019  
+                                                            _CANSTAT 000F6E  
+                                                     ?_cc_led_change 0018  
+                                                            _BRGCON1 000F70  
+                                                            _BRGCON2 000F71  
+                                                            _BRGCON3 000F72  
+                                                          ?_can_init 0018  
+                                                          ?_can_read 0018  
+                                          can_write@byte_cc_status_2 001A  
+                                                            i2u10_40 0362  
+                                                            i2u10_41 035C  
+                                                            i2u11_40 0382  
+                                                            i2u11_41 037C  
+                                                            i2u12_40 0398  
+                                                            i2u20_40 008A  
+                                                            i2u12_41 0392  
+                                                            i2u20_41 0084  
+                                                            i2u13_40 03AE  
+                                                            i2u21_40 00A8  
+                                                            i2u13_41 03A8  
+                                                            i2u21_41 00A2  
+                                                            i2u14_40 03C4  
+                                                            i2u30_40 0190  
+                                                            i2u22_40 00BE  
+                                                            i2u14_41 03BE  
+                                                            i2u30_41 018A  
+                                                            i2u22_41 00B8  
+                                                            i2u15_40 03DA  
+                                                            i2u31_40 01B0  
+                                                            i2u23_40 00DC  
+                                                            i2u15_41 03D4  
+                                                            i2u31_41 01AA  
+                                                            i2u23_41 00D6  
+                                                            i2u16_40 03F0  
+                                                            i2u40_40 029A  
+                                                            i2u32_40 01C6  
+                                                            i2u24_40 00F2  
+                                                            i2u16_41 03EA  
+                                                            i2u40_41 0294  
+                                                            i2u32_41 01C0  
+                                                            i2u24_41 00EC  
+                                                            i2u33_40 01E6  
+                                                            i2u25_40 0112  
+                                                            i2u17_40 0044  
+                                                            i2u33_41 01E0  
+                                                            i2u25_41 010C  
+                                                            i2u17_41 003E  
+                                                            i2u34_40 01FA  
+                                                            i2u26_40 0126  
+                                                            i2u18_40 0058  
+                                                            i2u34_41 01F4  
+                                                            i2u26_41 0120  
+                                                            i2u18_41 0052  
+                                                            _RXB0DLC 000F65  
+                                                            i2u35_40 021A  
+                                                            i2u27_40 0146  
+                                                            i2u19_40 0076  
+                                                            i2u35_41 0214  
+                                                            i2u27_41 0140  
+                                                            i2u19_41 0070  
+                                                            i2u36_40 022E  
+                                                            i2u28_40 015A  
+                                                            i2u60_40 0624  
+                                                            i2u36_41 0228  
+                                                            i2u28_41 0154  
+                                                            i2u60_41 061E  
+                                                            _RXB0CON 000F60  
+                                                            i2u37_40 024E  
+                                                            i2u29_40 017A  
+                                                            i2u37_41 0248  
+                                                            i2u29_41 0174  
+                                                            i2u38_40 0264  
+                                                            i2u62_40 001C  
+                                                            i2u38_41 025E  
+                                                            i2u62_41 0016  
+                                                            i2u39_40 0284  
+                                                            i2u39_41 027E  
+                                                            i2u59_40 060E  
+                                                            i2u59_41 0608  
+                                                            _TXB0DLC 000F45  
+                                                            _TXB0CON 000F40  
+                                                          ?_get_mode 0018  
+                                                  __end_of_can_write 05C0  
+                                                      ?_set_baudrate 0018  
+                                                _warning_lamp_status 0014  
+                                                            __Hparam 0000  
+                                                            __Lparam 0000  
+                                                          ?_set_mask 0018  
+                                                          ?_set_mode 0018  
+                                                            __pcinit 0752  
+                                                            __ramtop 0600  
+                                                            __ptext0 04C8  
+                                                            __ptext1 07A4  
+                                                            __ptext2 0792  
+                                                            __ptext3 0734  
+                                                            __ptext4 0768  
+                                                            __ptext5 06C6  
+                                                            __ptext6 0714  
+                                                            __ptext7 077E  
+                                                            __ptext8 0630  
+                                                            __ptext9 03FE  
+                                                          ?_sys_init 0018  
+                                               __end_of_init_inp_out 0792  
+                                                         ??_can_init 0019  
+                                                         ??_can_read 0019  
+                                                  _nrcs_data_extract 06EE  
+                                                         _range_stat 000F  
+                                                 ?_nrcs_data_extract 0018  
+                                                     ??_set_baudrate 001A  
+                                                         ??_get_mode 0019  
+                                               end_of_initialization 075E  
+                                                ??_nrcs_data_extract 0018  
+                                                         _set_filter 0734  
+                                                       ??i2_set_mode 0018  
+                                                         ??_set_mask 0019  
+                                                         ??_set_mode 0019  
+                                                            postinc0 000FEE  
+                                                    ??_cc_led_change 0019  
+                                                          _PORTBbits 000F81  
+                                                          _PORTCbits 000F82  
+                                                         ??_sys_init 0019  
+                                          __end_of_nrcs_data_extract 0714  
+                                                    _find_fault_data 0686  
+                                                          _TRISBbits 000F93  
+                                                          _TRISCbits 000F94  
+                                                 __end_ofi2_set_mode 07CA  
+                                              _set_byte_transmission 0768  
+                                                start_initialization 0752  
+                                                        ?_set_filter 0018  
+                                               __end_of_set_baudrate 06EE  
+                                            __end_of_find_fault_data 06C6  
+                                            _find_distance_from_nrcs 02AA  
+                                                        __pbssCOMRAM 0001  
+                                                          _can_write 0546  
+                                                       _init_inp_out 077E  
+                                                          _data_byte 0001  
+                                                          __pintcode 0008  
+                                             ?_set_byte_transmission 0018  
+                                          can_write@byte_speed_cmd_1 001E  
+                                                         ?_can_write 001A  
+                                                           _IPR3bits 000FA5  
+                                                           _PIE3bits 000FA3  
+                                                          _nrcs_data 0013  
+                                                           _PIR3bits 000FA4  
+                                          ??_find_distance_from_nrcs 0018  
+                                                           _RXB0SIDH 000F61  
+                                                           _RXB0SIDL 000F62  
+                                                           _RXF0SIDH 000F00  
+                                                           _RXF0SIDL 000F01  
+                                                           _RXF1SIDH 000F04  
+                                                           _RXF1SIDL 000F05  
+                                                          _speed_cmd 0015  
+                                                           _TXB0SIDH 000F41  
+                                                           _TXB0SIDL 000F42  
+                                                           _RXM0SIDH 000F18  
+                                                           _RXM0SIDL 000F19  
+                                                   ?_find_fault_data 0018  
+                                                        _INTCON2bits 000FF1  
+                                                   _speed_cmd_status 0010  
+                                                           __Hrparam 0000  
+                                                           __Lrparam 0000  
+                                                     _find_speed_cmd 0030  
+                                              __end_of_cc_led_change 04C8  
+                                                           _can_init 07CA  
+                                                           _can_read 05C0  
+                                    __end_of_find_distance_from_nrcs 03FC  
+                                                           __ptext10 0546  
+                                                           __ptext11 07B2  
+                                                           __ptext12 07CA  
+                                                           __ptext14 05C0  
+                                                           __ptext15 07BE  
+                                                           __ptext16 06EE  
+                                                           __ptext17 0030  
+                                                           __ptext18 0686  
+                                                           __ptext19 02AA  
+                                                           _get_mode 0714  
+                                                       _set_baudrate 06C6  
+                                                        ??_can_write 001C  
+                                                       ??_set_filter 0019  
+                                                      _fault_counter 0012  
+                                                           _set_mask 0792  
+                                                           _set_mode 07B2  
+                                             __end_of_find_speed_cmd 02AA  
+                                                           isa$xinst 000000  
+                                                           int$flags 001F  
+                                                       set_mode@mode 0019  
+                                                           _sys_init 07A4  
+                                                        _RXB0CONbits 000F60  
+                                               can_write@wl_status_3 001B  
+                                                 __end_of_set_filter 0752  
+                                                           intlevel2 07D4  
+                                                     _cc_switch_stat 0016  
+                                                    ?_find_speed_cmd 0018  
+                                            ??_set_byte_transmission 0019  
+                                       __end_of_change_err_stat_nLED 0686  

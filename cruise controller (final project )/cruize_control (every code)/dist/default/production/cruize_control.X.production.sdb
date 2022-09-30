@@ -1,0 +1,494 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F458 ]
+[d frameptr 4065 ]
+"28 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_FN_DEFNITION.c
+[e E5693 modes `uc
+CONFIG_MODE 128
+NORMAL_MODE_TRANS 8
+NORMAL_MODE_RECEIV 14
+]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"9 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_FN_DEFNITION.c
+[v _sys_init sys_init `(v  1 e 1 0 ]
+"18
+[v _can_init can_init `(v  1 e 1 0 ]
+"25
+[v _set_baudrate set_baudrate `(v  1 e 1 0 ]
+"37
+[v _set_mode set_mode `(v  1 e 1 0 ]
+[v i2_set_mode set_mode `(v  1 e 1 0 ]
+"42
+[v _get_mode get_mode `(v  1 e 1 0 ]
+"50
+[v _set_mask set_mask `(v  1 e 1 0 ]
+"56
+[v _set_filter set_filter `(v  1 e 1 0 ]
+"67
+[v _ISR1 ISR1 `IIH(v  1 e 1 0 ]
+"80
+[v _can_read can_read `(v  1 e 1 0 ]
+"109
+[v _can_write can_write `(v  1 e 1 0 ]
+"27 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_MAIN.C
+[v _main main `(v  1 e 1 0 ]
+"69
+[v _cc_led_change cc_led_change `(v  1 e 1 0 ]
+"88
+[v _change_err_stat_nLED change_err_stat_nLED `(v  1 e 1 0 ]
+"106
+[v _init_inp_out init_inp_out `(v  1 e 1 0 ]
+"126
+[v _nrcs_data_extract nrcs_data_extract `(v  1 e 1 0 ]
+"142
+[v _find_fault_data find_fault_data `(v  1 e 1 0 ]
+"152
+[v _find_distance_from_nrcs find_distance_from_nrcs `(v  1 e 1 0 ]
+"171
+[v _find_speed_cmd find_speed_cmd `(v  1 e 1 0 ]
+"210
+[v _set_byte_transmission set_byte_transmission `(v  1 e 1 0 ]
+"57 C:\Users\sk69648\MPLABXProjects\cruize_control.X/CAN_COMM.h
+[v _data_byte data_byte `[11]uc  1 e 11 0 ]
+"53 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f458.h
+[v _RXF0SIDH RXF0SIDH `VEuc  1 e 1 @3840 ]
+"165
+[v _RXF0SIDL RXF0SIDL `VEuc  1 e 1 @3841 ]
+"481
+[v _RXF1SIDH RXF1SIDH `VEuc  1 e 1 @3844 ]
+"593
+[v _RXF1SIDL RXF1SIDL `VEuc  1 e 1 @3845 ]
+"2621
+[v _RXM0SIDH RXM0SIDH `VEuc  1 e 1 @3864 ]
+"2733
+[v _RXM0SIDL RXM0SIDL `VEuc  1 e 1 @3865 ]
+"5746
+[v _TXB0CON TXB0CON `VEuc  1 e 1 @3904 ]
+"5836
+[v _TXB0SIDH TXB0SIDH `VEuc  1 e 1 @3905 ]
+"5948
+[v _TXB0SIDL TXB0SIDL `VEuc  1 e 1 @3906 ]
+"6264
+[v _TXB0DLC TXB0DLC `VEuc  1 e 1 @3909 ]
+"6342
+[v _TXB0D0 TXB0D0 `VEuc  1 e 1 @3910 ]
+"6404
+[v _TXB0D1 TXB0D1 `VEuc  1 e 1 @3911 ]
+"6466
+[v _TXB0D2 TXB0D2 `VEuc  1 e 1 @3912 ]
+"6528
+[v _TXB0D3 TXB0D3 `VEuc  1 e 1 @3913 ]
+"6590
+[v _TXB0D4 TXB0D4 `VEuc  1 e 1 @3914 ]
+"6652
+[v _TXB0D5 TXB0D5 `VEuc  1 e 1 @3915 ]
+"6714
+[v _TXB0D6 TXB0D6 `VEuc  1 e 1 @3916 ]
+"6776
+[v _TXB0D7 TXB0D7 `VEuc  1 e 1 @3917 ]
+"8109
+[v _RXB0CON RXB0CON `VEuc  1 e 1 @3936 ]
+[s S591 . 1 `uc 1 FILHIT0 1 0 :1:0 
+`uc 1 JTOFF 1 0 :1:1 
+`uc 1 RXB0DBEN 1 0 :1:2 
+`uc 1 RXRTRRO 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXM0 1 0 :1:5 
+`uc 1 RXM1 1 0 :1:6 
+`uc 1 RXFUL 1 0 :1:7 
+]
+"8142
+[s S600 . 1 `uc 1 RXB0FILHIT0 1 0 :1:0 
+`uc 1 RXB0FILHIT1 1 0 :1:1 
+`uc 1 RXB0FILHIT2 1 0 :1:2 
+`uc 1 RXB0FILHIT3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXB0M0 1 0 :1:5 
+`uc 1 RXB0M1 1 0 :1:6 
+`uc 1 RXB0FUL 1 0 :1:7 
+]
+[s S609 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB0RTRR0 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXB0RTRRO 1 0 :1:5 
+]
+[u S614 . 1 `S591 1 . 1 0 `S600 1 . 1 0 `S609 1 . 1 0 ]
+[v _RXB0CONbits RXB0CONbits `VES614  1 e 1 @3936 ]
+"8227
+[v _RXB0SIDH RXB0SIDH `VEuc  1 e 1 @3937 ]
+"8339
+[v _RXB0SIDL RXB0SIDL `VEuc  1 e 1 @3938 ]
+"8665
+[v _RXB0DLC RXB0DLC `VEuc  1 e 1 @3941 ]
+"8780
+[v _RXB0D0 RXB0D0 `VEuc  1 e 1 @3942 ]
+"8892
+[v _RXB0D1 RXB0D1 `VEuc  1 e 1 @3943 ]
+"9004
+[v _RXB0D2 RXB0D2 `VEuc  1 e 1 @3944 ]
+"9116
+[v _RXB0D3 RXB0D3 `VEuc  1 e 1 @3945 ]
+"9228
+[v _RXB0D4 RXB0D4 `VEuc  1 e 1 @3946 ]
+"9340
+[v _RXB0D5 RXB0D5 `VEuc  1 e 1 @3947 ]
+"9452
+[v _RXB0D6 RXB0D6 `VEuc  1 e 1 @3948 ]
+"9564
+[v _RXB0D7 RXB0D7 `VEuc  1 e 1 @3949 ]
+"9676
+[v _CANSTAT CANSTAT `VEuc  1 e 1 @3950 ]
+"9749
+[v _CANCON CANCON `VEuc  1 e 1 @3951 ]
+"9827
+[v _BRGCON1 BRGCON1 `VEuc  1 e 1 @3952 ]
+"9889
+[v _BRGCON2 BRGCON2 `VEuc  1 e 1 @3953 ]
+"9960
+[v _BRGCON3 BRGCON3 `VEuc  1 e 1 @3954 ]
+"9999
+[v _CIOCON CIOCON `VEuc  1 e 1 @3955 ]
+[s S67 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"10442
+[s S76 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 CANTX 1 0 :1:2 
+`uc 1 CANRX 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S85 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S88 . 1 `S67 1 . 1 0 `S76 1 . 1 0 `S85 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES88  1 e 1 @3969 ]
+[s S120 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"10573
+[s S129 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S138 . 1 `uc 1 T1CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S147 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S151 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S154 . 1 `S120 1 . 1 0 `S129 1 . 1 0 `S138 1 . 1 0 `S147 1 . 1 0 `S151 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES154  1 e 1 @3970 ]
+[s S195 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"11754
+[u S213 . 1 `S195 1 . 1 0 `S67 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES213  1 e 1 @3987 ]
+[s S235 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"11976
+[u S253 . 1 `S235 1 . 1 0 `S120 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES253  1 e 1 @3988 ]
+[s S390 . 1 `uc 1 RXB0IE 1 0 :1:0 
+`uc 1 RXB1IE 1 0 :1:1 
+`uc 1 TXB0IE 1 0 :1:2 
+`uc 1 TXB1IE 1 0 :1:3 
+`uc 1 TXB2IE 1 0 :1:4 
+`uc 1 ERRIE 1 0 :1:5 
+`uc 1 WAKIE 1 0 :1:6 
+`uc 1 IRXIE 1 0 :1:7 
+]
+"12996
+[s S399 . 1 `uc 1 RX0IE 1 0 :1:0 
+`uc 1 RX1IE 1 0 :1:1 
+`uc 1 TX0IE 1 0 :1:2 
+`uc 1 TX1IE 1 0 :1:3 
+`uc 1 TX2IE 1 0 :1:4 
+`uc 1 . 1 0 :2:5 
+`uc 1 IVRE 1 0 :1:7 
+]
+[s S407 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIE 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIE 1 0 :1:4 
+]
+[u S412 . 1 `S390 1 . 1 0 `S399 1 . 1 0 `S407 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES412  1 e 1 @4003 ]
+[s S526 . 1 `uc 1 RXB0IF 1 0 :1:0 
+`uc 1 RXB1IF 1 0 :1:1 
+`uc 1 TXB0IF 1 0 :1:2 
+`uc 1 TXB1IF 1 0 :1:3 
+`uc 1 TXB2IF 1 0 :1:4 
+`uc 1 ERRIF 1 0 :1:5 
+`uc 1 WAKIF 1 0 :1:6 
+`uc 1 IRXIF 1 0 :1:7 
+]
+"13113
+[s S535 . 1 `uc 1 RX0IF 1 0 :1:0 
+`uc 1 RX1IF 1 0 :1:1 
+`uc 1 TX0IF 1 0 :1:2 
+`uc 1 TX1IF 1 0 :1:3 
+`uc 1 TX2IF 1 0 :1:4 
+`uc 1 . 1 0 :2:5 
+`uc 1 IVRF 1 0 :1:7 
+]
+[s S543 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIF 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIF 1 0 :1:4 
+]
+[u S548 . 1 `S526 1 . 1 0 `S535 1 . 1 0 `S543 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES548  1 e 1 @4004 ]
+[s S439 . 1 `uc 1 RXB0IP 1 0 :1:0 
+`uc 1 RXB1IP 1 0 :1:1 
+`uc 1 TXB0IP 1 0 :1:2 
+`uc 1 TXB1IP 1 0 :1:3 
+`uc 1 TXB2IP 1 0 :1:4 
+`uc 1 ERRIP 1 0 :1:5 
+`uc 1 WAKIP 1 0 :1:6 
+`uc 1 IRXIP 1 0 :1:7 
+]
+"13225
+[s S448 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 IVRP 1 0 :1:7 
+]
+[s S451 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIP 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIP 1 0 :1:4 
+]
+[u S456 . 1 `S439 1 . 1 0 `S448 1 . 1 0 `S451 1 . 1 0 ]
+[v _IPR3bits IPR3bits `VES456  1 e 1 @4005 ]
+[s S275 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"16254
+[s S278 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S287 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S292 . 1 `S275 1 . 1 0 `S278 1 . 1 0 `S287 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES292  1 e 1 @4081 ]
+"17240
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"17732
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
+"13 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_MAIN.C
+[v _cc_nrcs_stat cc_nrcs_stat `uc  1 e 1 0 ]
+"14
+[v _cc_switch_stat cc_switch_stat `uc  1 e 1 0 ]
+"15
+[v _speed_cmd speed_cmd `uc  1 e 1 0 ]
+"16
+[v _warning_lamp_status warning_lamp_status `uc  1 e 1 0 ]
+"17
+[v _nrcs_data nrcs_data `uc  1 e 1 0 ]
+"18
+[v _fault_counter fault_counter `uc  1 e 1 0 ]
+"19
+[v _current_speed current_speed `uc  1 e 1 0 ]
+"20
+[v _speed_cmd_status speed_cmd_status `uc  1 e 1 0 ]
+"21
+[v _range_stat range_stat `uc  1 e 1 0 ]
+"22
+[v _byte1 byte1 `uc  1 e 1 0 ]
+"23
+[v _byte2 byte2 `uc  1 e 1 0 ]
+"24
+[v _byte3 byte3 `uc  1 e 1 0 ]
+"27
+[v _main main `(v  1 e 1 0 ]
+{
+"65
+} 0
+"9 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_FN_DEFNITION.c
+[v _sys_init sys_init `(v  1 e 1 0 ]
+{
+"16
+} 0
+"50
+[v _set_mask set_mask `(v  1 e 1 0 ]
+{
+"54
+} 0
+"56
+[v _set_filter set_filter `(v  1 e 1 0 ]
+{
+"65
+} 0
+"210 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_MAIN.C
+[v _set_byte_transmission set_byte_transmission `(v  1 e 1 0 ]
+{
+"215
+} 0
+"25 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_FN_DEFNITION.c
+[v _set_baudrate set_baudrate `(v  1 e 1 0 ]
+{
+"35
+} 0
+"42
+[v _get_mode get_mode `(v  1 e 1 0 ]
+{
+[v get_mode@mode mode `uc  1 a 1 wreg ]
+[v get_mode@mode mode `uc  1 a 1 wreg ]
+[v get_mode@mode mode `uc  1 a 1 1 ]
+"45
+} 0
+"106 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_MAIN.C
+[v _init_inp_out init_inp_out `(v  1 e 1 0 ]
+{
+"124
+} 0
+"88
+[v _change_err_stat_nLED change_err_stat_nLED `(v  1 e 1 0 ]
+{
+"104
+} 0
+"69
+[v _cc_led_change cc_led_change `(v  1 e 1 0 ]
+{
+"84
+} 0
+"109 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_FN_DEFNITION.c
+[v _can_write can_write `(v  1 e 1 0 ]
+{
+[v can_write@byte_speed_cmd_1 byte_speed_cmd_1 `uc  1 a 1 wreg ]
+[v can_write@byte_speed_cmd_1 byte_speed_cmd_1 `uc  1 a 1 wreg ]
+[v can_write@byte_cc_status_2 byte_cc_status_2 `uc  1 p 1 2 ]
+[v can_write@wl_status_3 wl_status_3 `uc  1 p 1 3 ]
+"111
+[v can_write@byte_speed_cmd_1 byte_speed_cmd_1 `uc  1 a 1 6 ]
+"129
+} 0
+"37
+[v _set_mode set_mode `(v  1 e 1 0 ]
+{
+[v set_mode@mode mode `uc  1 a 1 wreg ]
+[v set_mode@mode mode `uc  1 a 1 wreg ]
+"39
+[v set_mode@mode mode `uc  1 a 1 1 ]
+"40
+} 0
+"18
+[v _can_init can_init `(v  1 e 1 0 ]
+{
+"22
+} 0
+"67
+[v _ISR1 ISR1 `IIH(v  1 e 1 0 ]
+{
+"78
+} 0
+"80
+[v _can_read can_read `(v  1 e 1 0 ]
+{
+"103
+} 0
+"37
+[v i2_set_mode set_mode `(v  1 e 1 0 ]
+{
+[v i2set_mode@mode mode `uc  1 a 1 wreg ]
+[v i2set_mode@mode mode `uc  1 a 1 wreg ]
+"39
+[v i2set_mode@mode mode `uc  1 a 1 0 ]
+"40
+} 0
+"126 C:\Users\sk69648\MPLABXProjects\cruize_control.X\CAN_MAIN.C
+[v _nrcs_data_extract nrcs_data_extract `(v  1 e 1 0 ]
+{
+"139
+} 0
+"171
+[v _find_speed_cmd find_speed_cmd `(v  1 e 1 0 ]
+{
+"208
+} 0
+"142
+[v _find_fault_data find_fault_data `(v  1 e 1 0 ]
+{
+"150
+} 0
+"152
+[v _find_distance_from_nrcs find_distance_from_nrcs `(v  1 e 1 0 ]
+{
+"170
+} 0
